@@ -19,7 +19,10 @@
   }
 </style>
 <div class="ghContributors">
-  {{ $url := .Get 0 }} {{ range getJSON $url }}
+  {{ $url := .Get 0 }}
+  {{ with resources.GetRemote $url }}
+  {{ $contributors := . | transform.Unmarshal }}
+  {{ range $contributors }}
   <div>
     <img
       src="{{.avatar_url}}"
@@ -36,5 +39,8 @@
     <label><a href="{{.html_url}}">@{{.login}}</a></label>
     <span class="contributions">{{.contributions}} commits</span>
   </div>
+  {{ end }}
+  {{ else }}
+  {{ warnf "Unable to retrieve GitHub contributors from %q" $url }}
   {{ end }}
 </div>
