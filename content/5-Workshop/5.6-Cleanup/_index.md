@@ -1,32 +1,20 @@
 ---
-title : "Clean up"
-date : 2024-01-01
-weight : 6
-chapter : false
-pre : " <b> 5.6. </b> "
+title: "Resource Cleanup"
+date: 2026-07-28
+weight: 6
+chapter: false
+pre: " <b> 5.6. </b> "
 ---
-Congratulations on completing this workshop! 
-In this workshop, you learned architecture patterns for accessing Amazon S3 without using the Public Internet. 
-+ By creating a gateway endpoint, you enabled direct communication between EC2 resources and Amazon S3, without traversing an Internet Gateway. 
-+ By creating an interface endpoint you extended S3 connectivity to resources running in your on-premises data center via AWS Site-to-Site VPN or Direct Connect. 
 
-#### clean up
-1. Navigate to Hosted Zones on the left side of Route 53 console. Click the name of *s3.us-east-1.amazonaws.com* zone. Click Delete and confirm deletion by typing delete. 
+#### Cleanup checklist
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/delete-zone.png)
+1. Clean up only after demo/evidence acceptance; retain Registry and Pipeline evidence required for the report.
+2. Delete the SageMaker Endpoint, then its unused endpoint configuration.
+3. Remove API Gateway, Lambda, and its role when the API is no longer needed.
+4. Stop any future Model Monitor schedule; configure CloudWatch log retention and S3 lifecycle rules for temporary data.
+5. Check for active Studio/notebook applications or Processing/Training jobs.
+6. Retain `report/`, ARNs, and metrics needed for reporting before removing cloud data.
 
-2. Disassociate the Route 53 Resolver Rule - myS3Rule from "VPC Onprem" and Delete it. 
+The demo endpoint was deleted to stop endpoint-hour charges. Check the current cloud state before another demo rather than relying on historical artifacts.
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/vpc.png)
-
-4. Open the CloudFormation console  and delete the two CloudFormation Stacks that you created for this lab:
-+ PLOnpremSetup
-+ PLCloudSetup
-
-![delete stack](/images/5-Workshop/5.6-Cleanup/delete-stack.png)
-
-5. Delete S3 buckets
-+ Open S3 console
-+ Choose the bucket we created for the lab, click and confirm empty. Click delete and confirm delete.
-
-![delete s3](/images/5-Workshop/5.6-Cleanup/delete-s3.png)
+> **Image placeholder:** no remaining `agent-risk-scorer-endpoint` in SageMaker or CloudShell cleanup verification.
