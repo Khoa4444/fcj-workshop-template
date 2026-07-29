@@ -5,6 +5,7 @@ weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
+
 ## AI Coding Agent Risk Scoring on AWS
 
 This workshop explains the completed data, managed ML, governance, historical serving, and monitoring workflow for scoring AI Coding Agent trajectories. It uses accepted AWS evidence and safe placeholder commands; no paid resource needs to be rerun merely to follow the workshop.

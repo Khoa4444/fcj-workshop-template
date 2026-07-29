@@ -5,6 +5,7 @@ weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
+
 ## Tổng quan dự án
 
 Đề xuất ban đầu là xây dựng **hệ thống đánh giá chất lượng và rủi ro end-to-end cho AI Coding Agent trên AWS SageMaker**. Dự án hoàn thiện hiện đã chứng minh workflow này bằng managed training, evaluation, governance, serving evidence và monitoring acceptance, đồng thời vẫn giữ human review và deterministic safety rules làm lớp kiểm soát cho các quyết định rủi ro cao.

@@ -5,6 +5,7 @@ weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
+
 ## AI Coding Agent Risk Scoring trên AWS
 
 Workshop này trình bày luồng dữ liệu, managed ML, governance, historical serving và monitoring đã hoàn thiện để chấm điểm trajectory của AI Coding Agent. Nội dung dùng evidence đã nghiệm thu và command với placeholder an toàn; không cần chạy lại tài nguyên trả phí chỉ để theo workshop.
