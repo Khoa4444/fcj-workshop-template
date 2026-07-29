@@ -1,65 +1,80 @@
 ---
 title: "Kiểm tra end-to-end và evidence"
-date: 2024-01-01
+date: 2026-07-29
 weight: 9
 chapter: false
 pre: " <b> 5.9. </b> "
 ---
 
-Kiểm tra workflow theo hướng evidence-first. Free local checks và retained AWS records là đủ; live serving stack là tùy chọn và cần authorization rõ ràng.
-
 ## Free local validation
 
-```bash
-PYTHONPATH=demo_repo pytest demo_repo/tests -v
-pytest agent data_generation preprocessing training inference pipelines lambda monitoring -q
+Chạy test app và mock agent:
 
-python preprocessing/processing_script.py \
-  --input data_generation/combined_trajectories.jsonl \
-  --output-dir data/processed \
-  --seed 42
+```powershell
+pytest demo_repo/tests -q
+python -m agent.agent_runner `
+  --task "Fix login validation bug" `
+  --output runs/run_login.json
+Get-Content runs/run_login.json
 ```
 
-Xác nhận trajectory schema, thứ tự 17 features, labels, train/validation/test splits và local test results.
+Agent mock lần lượt đọc `demo_repo/app/auth.py`, thử sửa token validation, chạy `pytest demo_repo/tests`, và ghi JSON trajectory. Nếu source đã được sửa trong run cũ, `old_text` có thể không còn; dùng working tree sạch hoặc restore dòng `return token == "valid-token"` trước khi muốn lặp lại hành vi edit thành công.
 
-## Review External/OOD evidence
+## Live API integration
 
-Review retained local evidence mà không regenerate annotation hoặc fetch public trajectories trong demo:
+Sau 5.8, dùng URL `$api` mới:
 
-1. Mở `report/external_eval/external_pilot_report.json` tại `coverage`, `overall` và `by_source`.
-2. Mở `report/external_eval/false_negatives.jsonl` và chỉ hiển thị redacted record.
-3. Giải thích mức giảm từ synthetic macro F1 `1.00` xuống external macro F1 `0.1212`.
-4. Nêu rõ không retrain, tune threshold, gọi SageMaker hoặc chạy AWS Pipeline.
+```powershell
+python -m agent.agent_runner `
+  --task "Fix login validation bug" `
+  --output runs/run_login_api.json `
+  --score-api-url $api
+```
 
-Evidence này đủ để chứng minh generalization gap. Raw public trajectories và annotation packages không thuộc website hoặc video flow.
+Agent in `Risk Score`, `Quality Score`, `Decision`, `Reasons`; trajectory được lưu cục bộ. Historical evidence `report/agent_api_demo.json` ghi một run end-to-end `require_review` với risk score `0.3152`; không dùng đó để thay response live mới.
 
-## Accepted AWS evidence checklist
+## Negative request và Lambda logs
 
-- Processing Job hoàn tất và giữ train/validation/test CSV.
-- Managed XGBoost Training Job hoàn tất trên `1 x ml.m5.large`.
-- Held-out evaluation report có 183 rows và safety metrics.
-- Random HPO hoàn tất ba child jobs và giữ selected metadata.
-- Pipeline execution `z9y3p0bqaske` thành công qua conditional registration.
-- Registry versions `/1` và `/2` vẫn `PendingManualApproval`, chưa deploy.
-- Historical Endpoint và `POST /score-agent-run` trả HTTP `200` trước cleanup.
-- S3 giữ JSON Data Capture evidence.
-- Model Monitor ghi `CompletedWithViolations` và giữ reports.
-- CloudWatch giữ metrics/logs; dashboard và bảy alarms đã nghiệm thu được cleanup.
+Lambda handler trả HTTP `400` nếu request body không phải JSON. Kiểm tra đúng error contract bằng lệnh sau:
 
-## Optional live serving sequence
+```powershell
+try {
+  Invoke-WebRequest -Uri $api -Method Post -ContentType "application/json" -Body '{not-json'
+} catch {
+  $response = $_.Exception.Response
+  "HTTP $([int]$response.StatusCode)"
+  $reader = New-Object System.IO.StreamReader($response.GetResponseStream())
+  $reader.ReadToEnd()
+}
+```
 
-Sau confirmation gate:
+Kỳ vọng: `HTTP 400` và body có `Request body must be valid JSON.`. Đây là test malformed input; safe/risky test ở 5.8 là test business/policy behavior.
 
-1. Deploy một Endpoint `ml.t2.medium` ngắn hạn với Data Capture.
-2. Direct invoke một lần.
-3. Deploy Lambda và HTTP API.
-4. Chỉ dùng URL mới được in ra cho một hoặc hai Mini Agent requests.
-5. Kiểm tra `runs/run_login_api.json` và `score_response`.
-6. Cleanup API/Lambda trước, sau đó Endpoint resources.
+Sau một request, xem Lambda log group của lần deploy hiện tại:
 
-Không chạy lại Processing, Training, HPO, Pipeline hoặc Model Monitor cho live sequence. Nếu Endpoint không đạt `InService`, dừng, cleanup partial resources và trình bày retained evidence. Không retry mù hoặc đổi sang instance lớn hơn.
+```powershell
+aws logs tail /aws/lambda/agent-risk-scorer-api `
+  --since 10m `
+  --follow `
+  --region ap-southeast-1
+```
 
-## Diễn giải
+Dừng tail bằng `Ctrl+C`. Lambda source không tự ghi structured application log; output ở đây chủ yếu là invocation/platform/error logs của Lambda. Không diễn giải absence of error log là metric model quality.
 
-Request thành công chứng minh integration của historical serving path. Nó không chứng minh managed Registry packages đã deploy, và perfect synthetic evaluation metrics không chứng minh production generalization.
+## Evidence checklist
+
+- terminal generate JSONL và 1200 lines;
+- Processing completed + ba CSV output;
+- Training/HPO completed + best metrics report;
+- Pipeline succeeded + Registry PendingManualApproval;
+- endpoint InService;
+- safe API response và risky block response;
+- CloudWatch datapoint sau API call;
+- cleanup confirmation.
+
+> **[ẢNH PLACEHOLDER — end-to-end agent]** Chụp terminal agent có phần `AGENT RISK SCORING EVALUATION` và file `runs/run_login_api.json` trong Explorer. Không hiển thị API URL nếu không được phép.
+
+> **[ẢNH PLACEHOLDER — malformed-request validation]** Chụp terminal chỉ với `HTTP 400` và JSON message `Request body must be valid JSON.`. Ảnh này chứng minh API input validation, không dùng thay ảnh safe/risky decision.
+
+> **[ẢNH PLACEHOLDER — Lambda logs]** CloudWatch Console → Log groups → `/aws/lambda/agent-risk-scorer-api` → log stream mới nhất. Ảnh phải có timestamp ngay sau request test; chỉ dùng để chứng minh observability của Lambda.
 
