@@ -1,44 +1,27 @@
 ---
 title: "Events Participated"
-date: 2024-01-01
+date: 2026-07-30
 weight: 4
 chapter: false
 pre: " <b> 4. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** for your report, including this warning.
-{{% /notice %}}
+During my studies and professional development, I attended events on AWS, cloud computing, and artificial intelligence. Each event provided practical perspectives on system architecture, operations, security, and building AI products on cloud platforms.
 
-> In this section, you should list and describe in detail the events you have participated in during your internship or work experience.  
-> 
-> Each event should be presented in the format Event 1, Event 2, Event 3…, along with the following details:
-> * Event name
-> * Date and time
-> * Location (if applicable)
-> * Your role in the event (attendee, event support, speaker, etc.)
-> * A brief description of the event’s content and main activities
-> * Outcomes or value gained (lessons learned, new skills, contribution to the team/project)
-> * This listing helps demonstrate your actual participation as well as the soft skills and experience you have gained from each event.
+### [Event 1 – Cloud Architect](4.1-Event1/)
 
-During my internship, I participated in two events. Each one was a memorable experience that provided new, interesting, and useful knowledge, along with gifts and wonderful moments.
+&emsp;**Event name:** Cloud Architect<br>
+&emsp;**Time:** 09:00 (the event date was not provided in the materials)<br>
+&emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City<br>
+&emsp;**Role:** Attendee<br>
+&emsp;**Key content:** AWS Cloud Practitioner preparation, SLA monitoring from the user-experience perspective, and the AWS Security Agent for web-application security.
 
-### [Event 1](4.1-Event1/)  
-&emsp;**Event Name:** GenAI-powered App-DB Modernization workshop  
+### [Event 2 – First Cloud AI Journey × Agentic AI Build Week](4.2-Event2/)
 
-&emsp;**Date & Time:** 09:00, August 13, 2025  
+&emsp;**Event name:** First Cloud AI Journey × Agentic AI Build Week (FCAJ × AABW)<br>
+&emsp;**Time:** 25 July 2026<br>
+&emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City<br>
+&emsp;**Role:** Not provided in the source materials<br>
+&emsp;**Key content:** Practical Agentic AI and AWS projects, including crowd coordination, multichannel conversational ordering, Solution Architect assistance, and business-signal analysis.
 
-&emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City  
-
-&emsp;**Role:** Attendee  
-
----
-
-### [Event 2](4.2-Event2/)  
-&emsp;**Event Name:** GenAI-powered App-DB Modernization workshop  
-
-&emsp;**Date & Time:** 09:00, August 13, 2025  
-
-&emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City  
-
-&emsp;**Role:** Attendee  
+> Each detailed report includes event content, lessons learned, possible applications, and participation evidence.
