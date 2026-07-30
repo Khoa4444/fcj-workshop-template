@@ -1,45 +1,52 @@
 ---
 title: "Tổng quan workshop"
-date: 2026-07-29
+date: 2024-01-01
 weight: 1
 chapter: false
 pre: " <b> 5.1. </b> "
 ---
+AI Coding Agent có thể đọc code, sửa file, chạy command, thực thi test và tóm tắt kết quả. Các khả năng này hữu ích, nhưng một câu trả lời cuối thuyết phục không chứng minh hành vi bên dưới an toàn hoặc chính xác.
+
 ## Bài toán và quyết định
 
-Project chấm rủi ro một trajectory AI coding agent, không chấm chất lượng của câu trả lời LLM đơn lẻ. Đầu ra model là probability theo 6 class; policy layer mới quyết định `allow`, `require_review` hoặc `block`.
+Project đánh giá toàn bộ trajectory: file đã đọc/sửa, tool và command đã dùng, kích thước diff, evidence test/lint, truy cập file nhạy cảm, hành động phá hoại và mức độ hỗ trợ cho claim cuối.
 
-Người dùng mục tiêu là developer/tooling team đang thử nghiệm coding agent và reviewer cần một tín hiệu trước khi cho agent tiếp tục workflow. API output phục vụ adapter agent, còn Model Registry/Pipeline phục vụ người vận hành ML.
+Response điển hình:
 
-## Mục tiêu và tiêu chí thành công
+```json
+{
+  "risk_score": 0.6003,
+  "quality_score": 0.3997,
+  "predicted_label": "failed",
+  "decision": "require_review"
+}
+```
 
-Một rerun được xem là hoàn thành khi có đủ các bằng chứng sau:
-
-1. JSONL được sinh và nằm ở S3 raw prefix; Processing tạo đủ 3 CSV split.
-2. Training/HPO hoàn thành và `report/best_model_metrics.json` có artifact URI/metrics.
-3. Pipeline execution `Succeeded`; quality gate dùng `risky_recall >= 0.85`; package Registry ở `PendingManualApproval`.
-4. Endpoint trả safe response `allow`, risky response `block`, malformed JSON trả `400`.
-5. CloudWatch có `RiskScore`/`BlockedDecisions`; endpoint/API/Lambda được xóa sau demo.
-
-Các tiêu chí trên chứng minh workshop/MLOps flow, không chứng minh model production quality vì data synthetic.
+Score hỗ trợ reviewer, không thay thế quyết định con người. Hard rules xác định vẫn bảo vệ file nhạy cảm và chặn command phá hoại.
 
 ## Phạm vi đã hoàn thiện
 
-Repository có toàn bộ source code cho data generator, preprocessing, training/evaluation, SageMaker Pipeline, serving handler, Lambda, monitoring configuration, deployment/HPO scripts và FastAPI demo. AWS evidence đã ghi nhận tại `report/`; resource online được cleanup sau demo.
+Implementation đã nghiệm thu gồm:
 
-## Ranh giới evidence
+1. Nguồn training deterministic từ simulator và SWE-bench Lite pseudo-trajectories, cùng Mini LLM Agent trajectories dùng cho demo.
+2. Amazon S3 và SageMaker Processing với contract 17 features dùng chung.
+3. Managed SageMaker XGBoost Training và held-out evaluation.
+4. SageMaker Experiments và bounded Random HPO.
+5. Pipeline gate `risky_recall >= 0.85` và conditional Model Registry registration.
+6. Historical Endpoint, Lambda và API Gateway ngắn hạn.
+7. Endpoint Data Capture, Lambda EMF, Model Monitor và CloudWatch acceptance.
+8. Cleanup tài nguyên serving/monitoring trả phí nhưng giữ lại evidence.
+9. Một External/OOD diagnostic local độc lập trên 40 public trajectories được pin revision bằng frozen 17-feature model.
 
-- Pipeline execution: `Succeeded`, có `risky_recall=1.0`, Register Model package version 2.
-- Registry: package version 1 và 2 là `PendingManualApproval`.
-- Endpoint/API: historical demo đã từng `InService`/gọi được nhưng hiện **không còn online**.
-- Model Monitor schedule: **không có**; input nested trajectory cần flatten trước.
+## Split-Region và governance boundary
 
-## Cách dùng workshop
+Project không thể chạy hoàn toàn tại `ap-southeast-1` vì quota SageMaker Training cần thiết không được cấp tại Region này. Quota cho `1 x ml.m5.large` được duyệt tại `us-east-1`, nên managed Training và governance workflow phụ thuộc được chuyển sang Region đó.
 
-Chạy chương 5.2 đến 5.7 trước. Chỉ chạy 5.8 khi sẵn sàng demo request ngay sau đó, và luôn chạy 5.11 ngay khi chụp xong evidence.
+- `us-east-1`: managed Training, evaluation artifacts, Experiments/HPO, Pipeline, Model Registry và Model Monitor acceptance.
+- `ap-southeast-1`: Processing/Studio lịch sử cùng Endpoint, Lambda, API Gateway và CloudWatch serving ngắn hạn.
 
-## Đóng góp và reflection
+Model packages `agent-risk-scorer/1` và `/2` vẫn là `PendingManualApproval`. Pipeline không approve hoặc deploy package nào. Historical Endpoint dùng artifact train local trước đó và không được trình bày như Registry deployment.
 
-Phần tự triển khai của repository gồm trajectory simulator, mock coding agent có tool policy, feature extraction đồng nhất cho training/serving, XGBoost multiclass, policy hard block, SageMaker Pipeline quality gate, Lambda/API adapter và cleanup evidence.
+## Giới hạn evidence
 
-Khó khăn đã ghi nhận là incompatibility XGBoost DataFrame ở Pipeline `EvaluateModel`; source `training/evaluate_pipeline.py` xử lý bằng cách predict với NumPy matrix sau khi cài `xgboost==2.1.4`. Một hạn chế khác là nested inference JSON chưa phù hợp DefaultModelMonitor; project không tạo schedule sai lệch mà ghi rõ cần flatten/custom preprocessor. Hướng phát triển đúng là telemetry thực, human labels, API authentication/throttling, S3 lifecycle/Budgets, endpoint scaling và governed deployment sau manual approval.
+Held-out metrics hoàn hảo vì dataset hiện tại chủ yếu synthetic và được tạo để dễ phân tách. Chúng xác minh managed workflow chạy đúng, không chứng minh production model quality hoặc real-world generalization. Cần trajectory thực và human labeling trước khi dùng production.

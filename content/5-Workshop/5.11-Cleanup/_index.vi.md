@@ -1,100 +1,91 @@
 ---
 title: "Cleanup"
-date: 2026-07-29
+date: 2024-01-01
 weight: 11
 chapter: false
 pre: " <b> 5.11. </b> "
 ---
 
-{{% notice warning %}}
-Chỉ chạy lệnh xóa này cho resource bạn vừa tạo trong demo và đã xác minh name/region. Endpoint phải được xóa đầu tiên để dừng endpoint-hour charges.
-{{% /notice %}}
+Cleanup mọi short-lived resource ngay sau live demo đã được cho phép. Retained evidence không cần active compute.
 
-## 1. Xóa endpoint và endpoint configuration
+## 1. Xóa API Gateway và Lambda
 
-Lưu config name trước khi delete endpoint nếu chưa lưu ở bước deploy:
-
-```powershell
-$region = "ap-southeast-1"
-$endpoint = "agent-risk-scorer-endpoint"
-$endpointConfig = aws sagemaker describe-endpoint `
-  --endpoint-name $endpoint `
-  --region $region `
-  --query "EndpointConfigName" `
-  --output text
-
-aws sagemaker delete-endpoint --endpoint-name $endpoint --region $region
-aws sagemaker wait endpoint-deleted --endpoint-name $endpoint --region $region
-aws sagemaker delete-endpoint-config --endpoint-config-name $endpointConfig --region $region
+```bash
+python lambda/deploy_api_gateway.py \
+  --base-name agent-risk-score \
+  --endpoint-name agent-risk-local-xgboost-endpoint \
+  --region ap-southeast-1 \
+  --cleanup
 ```
 
-## 2. Xóa API Gateway và Lambda
+## 2. Xóa Endpoint resources
 
-`report/api_gateway.json` được deploy script ghi đè bằng API mới. Lấy ID từ file rồi xóa đúng API đó:
-
-```powershell
-$apiId = (Get-Content report/api_gateway.json | ConvertFrom-Json).api_id
-aws apigatewayv2 delete-api --api-id $apiId --region $region
-aws lambda delete-function --function-name agent-risk-scorer-api --region $region
+```bash
+python inference/deploy_sagemaker_endpoint.py \
+  --bucket "<ap-southeast-1-serving-bucket>" \
+  --role-arn "<sagemaker-execution-role-arn>" \
+  --region ap-southeast-1 \
+  --model-name agent-risk-local-xgboost \
+  --cleanup
 ```
 
-Lambda IAM role `agent-risk-scorer-lambda-role` chỉ xóa khi chắc chắn không được resource nào khác sử dụng. Script có inline policy `invoke-agent-risk-scorer`; kiểm tra trước khi xóa role.
+Helper gửi yêu cầu xóa theo dependency order: Endpoint → Endpoint Config → Model. Endpoint deletion là asynchronous. Chờ Endpoint biến mất, sau đó chạy lại cùng cleanup command một lần nếu configuration hoặc model còn dependency ở lần đầu.
 
-## 3. Xóa dashboard, optional alarm và monitoring demo data
+## 3. Xóa monitoring UI resources
 
-Nếu đã tạo dashboard/optional alarm ở 5.10, xóa chúng:
+```bash
+python monitoring/cloudwatch_monitoring.py \
+  --base-name agent-risk-score \
+  --region ap-southeast-1 \
+  --cleanup
 
-```powershell
-aws cloudwatch delete-dashboards --dashboard-names agent-risk-scorer-dashboard --region $region
-aws cloudwatch delete-alarms --alarm-names agent-risk-scorer-blocked-decisions-demo --region $region
+python monitoring/model_monitor.py \
+  --bucket "<us-east-1-training-bucket>" \
+  --role-arn "<sagemaker-execution-role-arn>" \
+  --region us-east-1 \
+  --schedule-name agent-risk-model-monitor \
+  --cleanup
 ```
-
-`delete-alarms` an toàn nếu alarm name không tồn tại; chỉ áp dụng cho alarm demo ở 5.10, không xóa alarm của workload khác.
-
-Xem trước prefix trước mọi thao tác:
-
-```powershell
-aws s3 ls s3://agent-risk-scoring/monitoring/data-capture/ --recursive --region $region
-```
-
-Chỉ khi không còn cần evidence capture, xóa đúng prefix đó:
-
-```powershell
-aws s3 rm s3://agent-risk-scoring/monitoring/data-capture/ --recursive --region $region
-```
-
-Không xóa raw data, processed/model artifacts, Pipeline execution hay Registry package nếu còn cần evidence/reproducibility.
-
-## 4. Tùy chọn: xóa workshop bucket và execution role
-
-Chỉ làm bước này sau khi đã tải/copy toàn bộ evidence cần nộp. Lệnh xóa toàn bộ object trong bucket workshop do bước 5.2 tạo:
-
-```powershell
-$bucket = ((Get-Content .env | Select-String '^S3_BUCKET=').ToString() -replace '^S3_BUCKET=', '')
-aws s3 rb "s3://$bucket" --force --region $region
-
-$roleName = "agent-risk-scorer-sagemaker-execution-role"
-aws iam delete-role-policy --role-name $roleName --policy-name agent-risk-scorer-s3-access
-aws iam detach-role-policy --role-name $roleName --policy-arn arn:aws:iam::aws:policy/AmazonSageMakerFullAccess
-aws iam delete-role --role-name $roleName
-Remove-Item sagemaker-trust-policy.json, sagemaker-s3-policy.json -ErrorAction SilentlyContinue
-```
-
-Không chạy lệnh này với bucket/role shared hoặc historical evidence của người khác. Trong trường hợp chỉ cần dừng chi phí lớn, endpoint/API/Lambda cleanup ở bước 1–2 là ưu tiên trước.
 
 ## Final absence checklist
 
-```powershell
-aws sagemaker list-endpoints --region $region `
-  --query "Endpoints[?EndpointName=='agent-risk-scorer-endpoint'].EndpointStatus"
-aws lambda get-function --function-name agent-risk-scorer-api --region $region
-```
+- Không còn demo Endpoint, Endpoint Config hoặc SageMaker Model.
+- Không còn temporary Lambda function hoặc API Gateway HTTP API.
+- Không còn Model Monitor schedule hoặc temporary monitoring Endpoint.
+- Không còn CloudWatch dashboard hoặc alarms tạo cho demo.
+- Không có Studio app đang chạy.
+- Không có active Processing, Training, HPO hoặc Pipeline execution.
+- Không lộ credentials trong logs, screenshots hoặc trajectory data.
 
-Lệnh Lambda cuối kỳ vọng lỗi `ResourceNotFoundException`; đó là xác nhận delete thành công. Với API, Console không còn API ID vừa xóa.
+## Xử lý dữ liệu External/OOD
 
-## Historical cleanup evidence
+External/OOD pilot local không tạo AWS resource nên không cần AWS cleanup. Raw public trajectories và annotation packages nằm ngoài Hugo site và không được copy vào repository này. Website chỉ công bố aggregate metrics ngắn gọn cùng redacted false-negative summary.
 
-`report/cleanup_report.json` ghi cleanup ngày 2026-07-26: endpoint, endpoint configurations, HTTP API, Lambda, Lambda role, dashboard, log groups và data-capture prefix đã bị xóa; Pipeline, Model Registry versions, S3 artifacts và Studio Domain không có app chạy được giữ lại.
+## Giữ lại làm evidence
 
-> **[ẢNH PLACEHOLDER — cleanup]** Chụp terminal `list-endpoints` trả mảng rỗng cho endpoint name, và SageMaker Endpoints Console không có endpoint đó. Chụp trước khi đóng cửa sổ demo; đây là evidence kiểm soát chi phí quan trọng.
+Chỉ giữ S3 raw/processed data, model artifacts, held-out evaluation reports, Pipeline/HPO metadata, Data Capture records, Model Monitor baseline/reports và CloudWatch logs/metrics cần thiết. Áp dụng lifecycle/log-retention policy phù hợp thay vì xóa accepted submission evidence.
+
+Tại lần kiểm tra nghiệm thu cuối, serving/API resources, monitoring schedule, dashboard, alarms, temporary monitoring Endpoint và Studio apps đều không còn hoạt động.
+
+## Evidence cleanup đã nghiệm thu
+
+![SageMaker Endpoint không còn sau cleanup](/images/5-Workshop/current/cleanup-sagemaker-endpoint-absent.png)
+
+*Hình 1. Demo Endpoint không còn sau cleanup.*
+
+![Lambda functions không còn sau cleanup](/images/5-Workshop/current/cleanup-lambda-functions-absent.png)
+
+*Hình 2. Không còn demo Lambda function.*
+
+![API Gateway APIs không còn sau cleanup](/images/5-Workshop/current/cleanup-apigateway-apis-abesent.png)
+
+*Hình 3. Không còn demo API Gateway HTTP API.*
+
+![Model Monitor schedule không còn sau cleanup](/images/5-Workshop/current/cleanup-model-monitor-schedule-absent.png)
+
+*Hình 4. Không còn Model Monitor schedule hoạt động.*
+
+![SageMaker Studio không có application chạy sau cleanup](/images/5-Workshop/current/cleanup-studio-zero-running-apps.png)
+
+*Hình 5. Lần kiểm tra Studio cuối cho thấy không có application đang chạy.*
 
