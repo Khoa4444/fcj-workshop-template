@@ -8,7 +8,7 @@ pre: " <b> 5.3. </b> "
 
 The completed project separates managed ML governance from historical serving so the evidence does not imply an unperformed deployment.
 
-![Completed split-Region AWS architecture for AI Coding Agent Risk Scoring](/images/2-Proposal/ai-agent-risk-architecture.webp)
+![Completed split-Region AWS architecture for AI Coding Agent Risk Scoring](/images/2-Proposal/end-to-end-mlops.png)
 
 *Figure 1. Managed ML and governance run in `us-east-1`; historical short-lived serving and its API evidence run in `ap-southeast-1`.*
 
@@ -29,4 +29,3 @@ Continue with:
 
 - [Data and managed ML flow](/5-workshop/5.3-s3-vpc/5.3.1-create-gwe/)
 - [Governance, inference, and monitoring flow](/5-workshop/5.3-s3-vpc/5.3.2-test-gwe/)
-
