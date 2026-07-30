@@ -1,6 +1,6 @@
 ---
 title: "Tối ưu chi phí cho web serverless trên AWS"
-date: 2026-07-30
+date: 2026-07-29
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
@@ -10,7 +10,7 @@ pre: " <b> 3.1. </b> "
 
 | Thông tin | Chi tiết |
 |---|---|
-| Ngày đăng | Sẽ cập nhật |
+| Ngày đăng | 29/07/2026 |
 | Trạng thái | Đã đăng |
 | Platform | AWS Study Group - Facebook Group |
 | Bài viết đã đăng | [Xem trên Facebook](https://www.facebook.com/share/p/18deroGCqx/) |

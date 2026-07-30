@@ -1,47 +1,64 @@
 ---
 title: "Sharing and Feedback"
-date: 2024-01-01
+date: 2026-07-30
 weight: 7
 chapter: false
 pre: " <b> 7. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
+## Reflections on the First Cloud AI Journey experience
 
-> Here, you can freely share your personal opinions about your experience participating in the First Cloud AI Journey program. This will help the FCAJ team improve any shortcomings based on the following aspects:
+Participating in the **Workforce Bootcamp – First Cloud AI Journey** gave me an opportunity to approach AWS, cloud computing, and AI/ML through practical work. Rather than studying each service in isolation, I could connect Amazon S3, SageMaker, Lambda, API Gateway, CloudWatch, and Model Registry in a project with a clear data, evaluation, governance, and monitoring flow.
 
-### Overall Evaluation
+I particularly appreciated the program’s encouragement of independent research, experimentation, and turning knowledge into a concrete product or document. The AI Coding Agent Risk Scorer project showed me that building AI does not stop at training a model: data reliability, false negatives, model approval, security, cost, and post-deployment behavior all matter.
 
-**1. Working Environment**  
-The working environment is very friendly and open. FCAJ members are always willing to help whenever I encounter difficulties, even outside working hours. The workspace is tidy and comfortable, helping me focus better. However, I think it would be nice to have more social gatherings or team bonding activities to strengthen relationships.
+## What I appreciated
 
-**2. Support from Mentor / Team Admin**  
-The mentor provides very detailed guidance, explains clearly when I don’t understand, and always encourages me to ask questions. The admin team supports administrative tasks, provides necessary documents, and creates favorable conditions for me to work effectively. I especially appreciate that the mentor allows me to try and solve problems myself instead of just giving the answer.
+### 1. Learning environment and sharing culture
 
-**3. Relevance of Work to Academic Major**  
-The tasks I was assigned align well with the knowledge I learned at university, while also introducing me to new areas I had never encountered before. This allowed me to both strengthen my foundational knowledge and gain practical skills.
+The program created an open environment that encouraged questions. Sharing sessions, workshops, and events exposed me to topics beyond ordinary assignments, including AWS Cloud Practitioner, SLA monitoring, web-application security, Agentic AI, and how teams build hackathon MVPs.
 
-**4. Learning & Skill Development Opportunities**  
-During the internship, I learned many new skills such as using project management tools, teamwork skills, and professional communication in a corporate environment. The mentor also shared valuable real-world experiences that helped me better plan my career path.
+### 2. Practical value
 
-**5. Company Culture & Team Spirit**  
-The company culture is very positive: everyone respects each other, works seriously but still keeps things enjoyable. When there are urgent projects, everyone works together and supports one another regardless of their position. This made me feel like a real part of the team, even as an intern.
+The most valuable aspect was the chance to apply knowledge in a concrete workflow. Through the project, I practiced data-contract design, data processing, training, evaluation, HPO, Pipelines, Model Registry, inference, APIs, and monitoring. This made the relationship between AWS services much clearer than learning individual service descriptions alone.
 
-**6. Internship Policies / Benefits**  
-The company provides an internship allowance and offers flexible working hours when needed. In addition, having the opportunity to join internal training sessions is a big plus.
+### 3. Documentation and technical direction
 
----
+AWS documentation and the sharing sessions provided useful direction for deeper self-study. The topics of quality gates, manual approval, human-in-the-loop review, cost control, and resource cleanup were especially valuable because they reflect real issues in cloud and AI systems.
 
-### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
+### 4. Broader perspective
 
----
+The two events I attended showed that AWS and Agentic AI can address varied problems: user-experience observability, application security, crowd coordination, multichannel ordering, Solution Architect assistance, and business-signal analysis. They motivated me to develop personal projects that solve real problems.
 
-### Suggestions & Expectations
-- Do you have any suggestions to improve the internship experience?  
-- Would you like to continue this program in the future?  
-- Any other comments (free sharing):
+## Opportunities for improvement
+
+### 1. Roadmap and delivery milestones
+
+The program could be even easier to follow with a shared weekly roadmap that states the minimum deliverables, evaluation criteria, and feedback milestones for each stage. This would help new learners manage time while researching technologies and completing report documentation.
+
+### 2. Cost and quota guidance
+
+For SageMaker exercises and paid services, a concise checklist on quotas, expected cost, monitoring, and cleanup would be helpful. It would let learners experiment more confidently while avoiding unnecessary resources or forgotten resources after a demo.
+
+### 3. Project-level technical feedback
+
+Additional short reviews by project or small group would be valuable. Feedback on architecture, data quality, security, observability, and demo presentation could help learners recognize trade-offs early and improve their products before final delivery.
+
+### 4. Learner connection
+
+More progress-sharing sessions, peer reviews, or small demo days could help members learn from each other’s problem-solving and presentation approaches while creating motivation to complete the work.
+
+## Responses to additional questions
+
+**What was I most satisfied with?**
+I was most satisfied with the opportunity to turn knowledge into a structured project and to gain practical perspectives on AWS, AI, MLOps, monitoring, and security.
+
+**What could the program improve for future interns?**
+I recommend a weekly roadmap, a cost/quota checklist, a consistent evidence template, and short technical review sessions so that learners receive feedback earlier.
+
+**Would I recommend the program to a friend?**
+Yes. I would recommend it to students who want to learn AWS and AI through practical work and who are prepared to learn independently and experiment. The program is most valuable when learners invest time in deeper research, ask questions, and complete their own deliverables.
+
+## Future expectations
+
+I hope to continue joining knowledge-sharing activities, workshops, and learning communities related to AWS and AI. In the next stage, I want to extend AI Coding Agent Risk Scorer with more realistic data, more independent evaluation, and a deployment process with stronger security, monitoring, and cost control.

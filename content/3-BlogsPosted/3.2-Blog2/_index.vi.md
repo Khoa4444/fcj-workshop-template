@@ -1,6 +1,6 @@
 ---
 title: "5 lỗi S3 phổ biến khiến dữ liệu dễ bị lộ"
-date: 2026-07-30
+date: 2026-07-29
 weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
@@ -10,7 +10,7 @@ pre: " <b> 3.2. </b> "
 
 | Thông tin | Chi tiết |
 |---|---|
-| Ngày đăng | Sẽ cập nhật |
+| Ngày đăng | 29/07/2026 |
 | Trạng thái | Đã đăng |
 | Platform | AWS Study Group - Facebook Group |
 | Bài viết đã đăng | [Xem trên Facebook](https://www.facebook.com/share/p/1BhVcvncyh/) |

@@ -1,5 +1,5 @@
 ---
-title: "Model đạt metric tốt chưa đủ: vì sao ML vẫn cần quy trình phê duyệt?"
+title: "Tuning hyperparameter thủ công mãi? Thử SageMaker Automatic Model Tuning"
 date: 2026-07-30
 weight: 3
 chapter: false
@@ -10,55 +10,57 @@ pre: " <b> 3.3. </b> "
 
 | Thông tin | Chi tiết |
 |---|---|
-| Ngày đăng | Sẽ cập nhật |
+| Ngày đăng | 30/07/2026 |
 | Trạng thái | Đã đăng |
 | Platform | AWS Study Group - Facebook Group |
 | Bài viết đã đăng | Sẽ cập nhật liên kết Facebook |
 
-Một model có accuracy cao không đồng nghĩa với việc nên được đưa thẳng vào production. Với những hệ thống tác động đến người dùng hoặc quyết định có rủi ro, đội ngũ còn cần biết: model có đạt ngưỡng chất lượng đã đặt ra không, có dấu hiệu thiên lệch không, feature quan trọng có hợp lý không, và endpoint sau khi triển khai có hoạt động đúng trong môi trường gần production hay không.
+![Luồng huấn luyện mô hình với Amazon SageMaker](/images/3-BlogsPosted/sagemaker-automatic-model-tuning.png)
 
-Nếu mọi kiểm tra này đều làm thủ công, quy trình sẽ nhanh chóng trở thành nút thắt. Model càng nhiều, người duyệt càng ít thời gian, còn tiêu chuẩn đánh giá dễ không đồng nhất giữa các team. Hướng tiếp cận tốt hơn là biến các tiêu chuẩn đó thành code và chạy chúng tự động mỗi khi có model version mới.
+*Hình 1. Amazon SageMaker tạo Training Job từ notebook, dùng dữ liệu trên Amazon S3, lưu model artifact trên S3 và ghi log, metric lên Amazon CloudWatch.*
 
-## Tách “model được duyệt” và “endpoint được duyệt”
+Làm machine learning có một đoạn rất dễ “mất thời gian vô tận”: model đã train được, dữ liệu cũng ổn, nhưng chưa biết nên đặt learning rate, max depth, regularization thế nào để kết quả tốt hơn.
 
-Một ý quan trọng trong kiến trúc MLOps là model và endpoint là hai đối tượng cần được xem xét riêng.
+Thử tay vài bộ thì dễ. Nhưng khi số hyperparameter tăng lên, số tổ hợp có thể thử sẽ tăng rất nhanh. Lúc đó, chạy từng lần rồi ghi chép lại không chỉ tốn công mà còn khó biết mình đã bỏ lỡ cấu hình tốt nào.
 
-Model chỉ nên được duyệt khi vượt qua các kiểm tra về chất lượng, bias và feature importance theo ngưỡng của tổ chức. Nhưng kể cả model đã được duyệt, endpoint vẫn cần được xác nhận ở môi trường giống production: khả năng tích hợp, hành vi runtime, quyền truy cập và các yêu cầu vận hành.
+Amazon SageMaker Automatic Model Tuning (AMT) sinh ra để xử lý phần này.
 
-Tách hai bước này tránh việc coi một metric tốt trong notebook là bằng chứng đủ cho toàn bộ hệ thống.
+Thay vì tự tạo nhiều training job, mình chỉ cần chuẩn bị ba thứ:
 
-## Luồng phê duyệt tự động với SageMaker
+* **Training job:** model hoặc thuật toán muốn train, ví dụ XGBoost.
+* **Objective metric:** chỉ số muốn tối ưu, ví dụ `validation:accuracy`, macro F1 hoặc risky recall.
+* **Search space:** khoảng giá trị cho những hyperparameter cần thử.
 
-Một luồng tham chiếu có thể bắt đầu khi data scientist commit code. SageMaker Pipelines chạy build, training và các processing job; Amazon SageMaker Clarify tạo các báo cáo về model quality, bias và explainability, rồi các artifact được lưu trong Amazon S3. Model mới được đăng ký vào SageMaker Model Registry với trạng thái `PendingManualApproval`.
+Sau đó SageMaker AMT sẽ tự tạo nhiều trial. Mỗi trial là một SageMaker Training Job với một cấu hình hyperparameter khác nhau. Khi hoàn tất, mình có thể xem trial nào tốt nhất, model nào tạo ra nó, log ra sao và các giá trị hyperparameter đã được dùng.
 
-Từ đây, kiến trúc event-driven tiếp quản:
+## Ví dụ search space với XGBoost
 
-`Model Registry → EventBridge → Lambda → SageMaker approval pipeline`
+Với XGBoost, có thể cho AMT khám phá các khoảng như:
 
-EventBridge nhận sự kiện khi một model package ở trạng thái chờ phê duyệt. Lambda khởi chạy approval pipeline. Pipeline đọc báo cáo đã lưu, đối chiếu với các threshold đã định nghĩa và xuất kết quả kiểm tra. Nếu tất cả điều kiện đạt, pipeline cập nhật model package thành `Approved`; nếu không, chuyển thành `Rejected` và ghi rõ lý do.
+* `eta` (learning rate): từ 0.1 đến 0.5.
+* `alpha` (L1 regularization): từ 0.01 đến 0.5.
+* `max_depth`: từ 1 đến 10.
+* `min_child_weight`: từ 0 đến 2.
 
-Điểm hay của cách làm này là reviewer không cần lặp lại các kiểm tra định lượng quen thuộc. Con người có thể tập trung vào các trường hợp ngoại lệ, chính sách và rủi ro mà rule tự động chưa mô tả hết.
+Điểm quan trọng là đừng chỉ lấy “best trial” rồi kết thúc. Phần thú vị hơn là nhìn toàn bộ kết quả.
 
-## Vì sao nên có tài khoản governance riêng?
+Nếu những trial có `eta` gần 0.5 thường cho metric tốt hơn, có thể lần chạy sau nên mở rộng vùng này để khám phá tiếp. Nếu `max_depth` chỉ tốt ở một vài mức, ta có thể thu hẹp search space để tránh tốn trial vào những cấu hình kém hiệu quả. HPO vì vậy không chỉ chọn một bộ số tốt, mà còn giúp hiểu model nhạy với hyperparameter nào.
 
-Trong mô hình nhiều AWS account, các artifact và cơ chế phê duyệt có thể được đặt trong một AI/ML governance account tách với môi trường phát triển. Artifact từ development account được chuyển sang bucket kiểm soát ở governance account, nơi pipeline xác thực chạy với quyền truy cập hạn chế hơn.
+Trong SageMaker, các trial có thể xem ngay trên console như các training job thông thường: hyperparameter, input data, thời gian chạy, CloudWatch logs và metric đều có lịch sử. Điều này tiện khi cần so sánh hoặc giải thích vì sao một model được chọn.
 
-Thiết kế này giúp tách trách nhiệm giữa team xây model và team đặt/chấp thuận tiêu chuẩn phát hành. Nó cũng tạo audit trail rõ hơn: model version nào đã được kiểm tra, kiểm tra theo ngưỡng nào và được duyệt hay từ chối vì điều gì.
+## Áp dụng cho AI Agent Risk Scorer
 
-## Áp dụng cho hệ thống AI Agent Risk Scorer
+Với project AI Agent Risk Scorer, đây là điểm rất đáng chú ý: không nên tối ưu chỉ theo accuracy. Nếu mục tiêu là hạn chế bỏ sót trajectory nguy hiểm, `risky recall` hoặc risky false-negative rate sẽ phản ánh rủi ro tốt hơn. Chọn đúng objective metric quan trọng không kém việc chạy nhiều trial.
 
-Với một model chấm điểm rủi ro cho AI coding agent, quality gate không nên chỉ nhìn accuracy. Ví dụ, có thể đặt điều kiện về risky recall để hạn chế bỏ sót trajectory nguy hiểm, đồng thời kiểm tra false-negative rate và dữ liệu/feature dùng để đánh giá. Khi model đạt ngưỡng, nó vẫn nên nằm ở `PendingManualApproval` để reviewer xem lại dữ liệu, artifact và policy trước khi promotion.
+Cuối cùng, HPO cũng có chi phí vì mỗi trial là một training job. Nên bắt đầu bằng search space có cơ sở, giới hạn số trial bằng `max_jobs`, theo dõi kết quả, rồi chạy vòng tiếp theo với phạm vi tinh gọn hơn. Sau khi chọn model tốt, vẫn cần evaluation, model registry, approval và monitoring trước khi đưa lên production.
 
-Sau khi endpoint được triển khai, monitoring tiếp tục là phần bắt buộc. Model production có thể gặp distribution khác, feature drift hoặc hành vi mới từ agent mà dữ liệu huấn luyện chưa phản ánh. Approval là một cổng kiểm soát quan trọng, không phải điểm kết thúc của MLOps.
-
-Tự động hóa phê duyệt không nhằm loại bỏ con người khỏi quy trình. Mục tiêu là tự động hóa các kiểm tra lặp lại, nhất quán và đo được; từ đó dành thời gian của con người cho những quyết định có bối cảnh và trách nhiệm cao hơn.
+Tóm lại, SageMaker AMT không thay thế tư duy ML, nhưng giúp biến việc “thử từng bộ hyperparameter” thành một quy trình có hệ thống, đo được và dễ lặp lại hơn.
 
 ## Nguồn tham khảo
 
-- [Automate the machine learning model approval process with Amazon SageMaker Model Registry and Amazon SageMaker Pipelines — AWS](https://aws.amazon.com/blogs/machine-learning/automate-the-machine-learning-model-approval-process-with-amazon-sagemaker-model-registry-and-amazon-sagemaker-pipelines/)
-- [Build an Amazon SageMaker Model Registry approval and promotion workflow with human intervention — AWS](https://aws.amazon.com/blogs/machine-learning/build-an-amazon-sagemaker-model-registry-approval-and-promotion-workflow-with-human-intervention/)
-- [Improve governance of your machine learning models with Amazon SageMaker — AWS](https://aws.amazon.com/blogs/machine-learning/improve-governance-of-your-machine-learning-models-with-amazon-sagemaker/)
-
+- [Optimize hyperparameters with Amazon SageMaker Automatic Model Tuning — AWS](https://aws.amazon.com/blogs/machine-learning/optimize-hyperparameters-with-amazon-sagemaker-automatic-model-tuning/)
+- [Explore advanced techniques for hyperparameter optimization with SageMaker AMT — AWS](https://aws.amazon.com/blogs/machine-learning/explore-advanced-techniques-for-hyperparameter-optimization-with-amazon-sagemaker-automatic-model-tuning/)
+- [Perform Automatic Model Tuning with SageMaker — AWS Documentation](https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning.html)
 
 ---
 

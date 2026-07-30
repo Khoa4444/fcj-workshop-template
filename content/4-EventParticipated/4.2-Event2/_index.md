@@ -13,7 +13,7 @@ pre: " <b> 4.2. </b> "
 - **Event name:** First Cloud AI Journey × Agentic AI Build Week (FCAJ × AABW)
 - **Date:** 25 July 2026
 - **Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City
-- **Role:** Not provided in the source materials
+- **Role:** Attendee
 
 ## 2. Overview
 

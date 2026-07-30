@@ -11,7 +11,7 @@ During my studies and professional development, I attended events on AWS, cloud 
 ### [Event 1 – Cloud Architect](4.1-Event1/)
 
 &emsp;**Event name:** Cloud Architect<br>
-&emsp;**Time:** 09:00 (the event date was not provided in the materials)<br>
+&emsp;**Time:** 09:00, 11 July 2026<br>
 &emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City<br>
 &emsp;**Role:** Attendee<br>
 &emsp;**Key content:** AWS Cloud Practitioner preparation, SLA monitoring from the user-experience perspective, and the AWS Security Agent for web-application security.
@@ -21,7 +21,7 @@ During my studies and professional development, I attended events on AWS, cloud 
 &emsp;**Event name:** First Cloud AI Journey × Agentic AI Build Week (FCAJ × AABW)<br>
 &emsp;**Time:** 25 July 2026<br>
 &emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City<br>
-&emsp;**Role:** Not provided in the source materials<br>
+&emsp;**Role:** Attendee<br>
 &emsp;**Key content:** Practical Agentic AI and AWS projects, including crowd coordination, multichannel conversational ordering, Solution Architect assistance, and business-signal analysis.
 
 > Each detailed report includes event content, lessons learned, possible applications, and participation evidence.

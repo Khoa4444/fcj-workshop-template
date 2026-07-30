@@ -12,7 +12,7 @@ Trong quá trình học tập và phát triển chuyên môn, tôi đã tham gia
 
 &emsp;**Tên sự kiện:** Cloud Architect
 
-&emsp;**Thời gian:** 09:00 (tài liệu chưa cung cấp ngày tổ chức)
+&emsp;**Thời gian:** 09:00, 11/07/2026
 
 &emsp;**Địa điểm:** Tầng 26, Bitexco Tower, 02 Hải Triều, phường Sài Gòn, Thành phố Hồ Chí Minh
 
@@ -24,11 +24,11 @@ Trong quá trình học tập và phát triển chuyên môn, tôi đã tham gia
 
 &emsp;**Tên sự kiện:** First Cloud AI Journey × Agentic AI Build Week (FCAJ × AABW)
 
-&emsp;**Thời gian:** 25/7
+&emsp;**Thời gian:** 25/07/2026
 
 &emsp;**Địa điểm:** Tầng 26, Bitexco Tower, 02 Hải Triều, phường Sài Gòn, Thành phố Hồ Chí Minh
 
-&emsp;**Vai trò trong sự kiện:** Thông tin chưa được cung cấp
+&emsp;**Vai trò trong sự kiện:** Người tham dự
 
 &emsp;**Nội dung chính:** Theo dõi các dự án thực hành về Agentic AI và AWS, gồm điều phối đám đông, đặt món hội thoại đa kênh, hỗ trợ Solution Architect và phân tích tín hiệu doanh nghiệp.
 

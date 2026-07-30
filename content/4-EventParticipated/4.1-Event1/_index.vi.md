@@ -11,7 +11,7 @@ pre: " <b> 4.1. </b> "
 ## 1. Thông tin sự kiện
 
 - **Tên sự kiện:** Cloud Architect
-- **Thời gian:** 09:00 (tài liệu chưa cung cấp ngày tổ chức)
+- **Thời gian:** 09:00, 11/07/2026
 - **Địa điểm:** Tầng 26, Bitexco Tower, 02 Hải Triều, phường Sài Gòn, Thành phố Hồ Chí Minh
 - **Vai trò tham gia:** Người tham dự (attendee)
 

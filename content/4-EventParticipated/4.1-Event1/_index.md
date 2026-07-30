@@ -11,7 +11,7 @@ pre: " <b> 4.1. </b> "
 ## 1. Event information
 
 - **Event name:** Cloud Architect
-- **Time:** 09:00 (the event date was not provided in the materials)
+- **Time:** 09:00, 11 July 2026
 - **Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City
 - **Role:** Attendee
 

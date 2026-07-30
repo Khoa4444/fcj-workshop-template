@@ -12,8 +12,8 @@ Phần này tổng hợp các bài viết kỹ thuật về AWS đã được đ
 
 | STT | Bài viết đã đăng | Ngày đăng | Trạng thái |
 |---|---|---|---|
-| 1 | [Tối ưu chi phí cho web serverless trên AWS](3.1-Blog1/) | Sẽ cập nhật | Đã đăng |
-| 2 | [5 lỗi S3 phổ biến khiến dữ liệu dễ bị lộ](3.2-Blog2/) | Sẽ cập nhật | Đã đăng |
-| 3 | [Model đạt metric tốt chưa đủ: vì sao ML vẫn cần quy trình phê duyệt?](3.3-Blog3/) | Sẽ cập nhật | Đã đăng |
+| 1 | [Tối ưu chi phí cho web serverless trên AWS](3.1-Blog1/) | 29/07/2026 | Đã đăng |
+| 2 | [5 lỗi S3 phổ biến khiến dữ liệu dễ bị lộ](3.2-Blog2/) | 29/07/2026 | Đã đăng |
+| 3 | [Tuning hyperparameter thủ công mãi? Thử SageMaker Automatic Model Tuning](3.3-Blog3/) | 30/07/2026 | Đã đăng |
 
-> Cập nhật ngày đăng và liên kết Facebook khi có thông tin.
+> Liên kết Facebook của Blog 3 sẽ được bổ sung khi có thông tin.

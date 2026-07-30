@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-Phần này ghi nhận quá trình thực hiện dự án **AI Coding Agent Risk Scoring** trong tám tuần, từ ngày 01/06/2026 đến ngày 26/07/2026.
+Phần này ghi nhận quá trình thực hiện dự án **AI Coding Agent Risk Scoring** trong mười hai tuần, từ ngày 01/06/2026 đến ngày 23/08/2026.
 
 **Tuần 1:** [Xác định bài toán và phạm vi MVP](1.1-Week1/)
 
@@ -23,3 +23,11 @@ Phần này ghi nhận quá trình thực hiện dự án **AI Coding Agent Risk
 **Tuần 7:** [Monitoring, observability và kiểm soát chi phí](1.7-Week7/)
 
 **Tuần 8:** [Hoàn thiện pipeline, tài liệu và evidence](1.8-Week8/)
+
+**Tuần 9:** [Hoàn thiện blog và hồ sơ dự án](1.9-Week9/)
+
+**Tuần 10:** [Hoàn thiện báo cáo sự kiện và evidence](1.10-Week10/)
+
+**Tuần 11:** [Rà soát nội dung kỹ thuật và song ngữ](1.11-Week11/)
+
+**Tuần 12:** [Hoàn thiện báo cáo và chuẩn bị bàn giao](1.12-Week12/)
