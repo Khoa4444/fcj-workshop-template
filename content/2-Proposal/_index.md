@@ -5,6 +5,7 @@ weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
+
 ## Project Overview
 
 The original proposal was to build an **end-to-end risk scoring and quality evaluation system for AI coding agents on AWS SageMaker**. The completed project now demonstrates that workflow with managed training, evaluation, governance, serving evidence, and monitoring acceptance while keeping human review and deterministic safety rules in control of high-risk decisions.
