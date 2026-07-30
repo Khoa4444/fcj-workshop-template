@@ -6,6 +6,9 @@ chapter: false
 ---
 
 # Báo cáo thực tập
+
+![Ảnh thẻ của Dương Đăng Khoa](/images/profile/duong-dang-khoa.png)
+
 ### Thông tin sinh viên:
 &emsp; **Họ và tên:** Dương Đăng Khoa
 

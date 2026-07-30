@@ -7,6 +7,8 @@ chapter: false
 
 # Internship Report
 
+![Portrait of Duong Dang Khoa](/images/profile/duong-dang-khoa.png)
+
 ### Student Information:
 &emsp; **Full Name:** Duong Dang Khoa
 
