@@ -6,16 +6,14 @@ chapter: false
 pre: " <b> 3. </b> "
 ---
 
-This section lists the blog posts I have published to [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj).
+## Overview
 
-### [Blog 1 - Optimizing Costs for Serverless Web Applications on AWS](3.1-Blog1/)
+These pages collect technical posts about AWS. Each page contains the original Vietnamese article, publication details, and reference links.
 
-This post explains the design choices that directly affect serverless web-application cost: selecting a suitable API type, distributing content through a CDN, storing data in the right service, and configuring Lambda from measured results.
+| No. | Published post | Date | Status |
+|---|---|---|---|
+| 1 | [Optimizing costs for serverless web applications on AWS](3.1-Blog1/) | To be updated | Published |
+| 2 | [Five common S3 mistakes that can expose data](3.2-Blog2/) | To be updated | Published |
+| 3 | [Good metrics are not enough: why ML still needs an approval workflow](3.3-Blog3/) | To be updated | Published |
 
-### [Blog 2 - Five Common S3 Mistakes That Can Expose Data](3.2-Blog2/)
-
-This post is an Amazon S3 security checklist covering public access, IAM permissions, monitoring, encryption, and data recovery.
-
-### [Blog 3 - Good Model Metrics Are Not Enough: Why ML Still Needs an Approval Process](3.3-Blog3/)
-
-This post explains how SageMaker Model Registry and SageMaker Pipelines can evaluate, approve, or reject a model before release.
+> Update the publication dates and Facebook links when they are available.
