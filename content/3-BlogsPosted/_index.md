@@ -1,22 +1,19 @@
 ---
-title: "Blogs Posted"
-date: 2024-01-01
+title: "Published Blog Posts"
+date: 2026-07-30
 weight: 3
 chapter: false
 pre: " <b> 3. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+### [Blog 1 - Optimizing Costs for Serverless Web Applications on AWS](3.1-Blog1/)
 
-This section will list and introduce the blogs you have posted to [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj). For example:
+This post explains the design choices that directly affect serverless web-application cost: selecting a suitable API type, distributing content through a CDN, storing data in the right service, and configuring Lambda from measured results.
 
-###  [Blog 1 - SESSION POLICIES IN AMAZON EKS POD IDENTITY](3.1-Blog1/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+### [Blog 2 - Five Common S3 Mistakes That Can Expose Data](3.2-Blog2/)
 
-###  [Blog 2 - ...](3.2-Blog2/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+This post is an Amazon S3 security checklist covering public access, IAM permissions, monitoring, encryption, and data recovery.
 
-###  [Blog 3 - ...](3.3-Blog3/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+### [Blog 3 - Good Model Metrics Are Not Enough: Why ML Still Needs an Approval Process](3.3-Blog3/)
+
+This post explains how SageMaker Model Registry and SageMaker Pipelines can evaluate, approve, or reject a model before release.

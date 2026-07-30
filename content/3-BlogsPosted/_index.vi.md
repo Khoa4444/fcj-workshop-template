@@ -1,22 +1,18 @@
 ---
-title: "Các bài blogs đã đăng"
-date: 2024-01-01
+title: "Các bài blog đã đăng"
+date: 2026-07-30
 weight: 3
 chapter: false
 pre: " <b> 3. </b> "
 ---
+### [Blog 1 - Tối ưu chi phí cho web serverless trên AWS](3.1-Blog1/)
 
-{{% notice warning %}}  
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+Bài viết trình bày các điểm thiết kế ảnh hưởng trực tiếp đến chi phí của web serverless: chọn API phù hợp, phân phối nội dung qua CDN, lưu dữ liệu đúng lớp và cấu hình Lambda theo số liệu đo thực tế.
 
-Tại đây sẽ là phần liệt kê, giới thiệu các blogs mà các bạn đã đăng trên [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj). Ví dụ:
+### [Blog 2 - 5 lỗi S3 phổ biến khiến dữ liệu dễ bị lộ](3.2-Blog2/)
 
-###  [Blog 1 - SESSION POLICIES TRONG AMAZON EKS POD IDENTITY](3.1-Blog1/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+Bài viết là checklist bảo mật Amazon S3, bao gồm public access, quyền IAM, giám sát, mã hóa và khả năng khôi phục dữ liệu.
 
-###  [Blog 2 - ...](3.2-Blog2/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+### [Blog 3 - Model đạt metric tốt chưa đủ: vì sao ML vẫn cần quy trình phê duyệt?](3.3-Blog3/)
 
-###  [Blog 3 - ...](3.3-Blog3/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+Bài viết giải thích cách dùng SageMaker Model Registry và SageMaker Pipelines để tự động kiểm tra, phê duyệt hoặc từ chối model trước khi phát hành.
