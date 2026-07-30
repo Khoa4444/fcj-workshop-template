@@ -13,7 +13,7 @@ pre: " <b> 3.2. </b> "
 | Ngày đăng | Sẽ cập nhật |
 | Trạng thái | Đã đăng |
 | Platform | AWS Study Group - Facebook Group |
-| Bài viết đã đăng | Sẽ cập nhật liên kết Facebook |
+| Bài viết đã đăng | [Xem trên Facebook](https://www.facebook.com/share/p/1BhVcvncyh/) |
 
 Amazon S3 thường là nơi lưu ảnh, file upload, backup và dữ liệu ứng dụng. Chính vì dễ dùng, S3 cũng dễ trở thành điểm rủi ro nếu quyền truy cập và khả năng phục hồi không được thiết kế từ đầu.
 
@@ -46,8 +46,6 @@ Mã hóa không thay thế phân quyền, nhưng là một lớp bảo vệ quan
 Sự cố không chỉ đến từ tấn công: người dùng hoặc ứng dụng cũng có thể xóa/sửa nhầm file. Versioning giúp lưu các phiên bản object để có thể khôi phục. Với dữ liệu quan trọng hơn, có thể cân nhắc replication sang bucket hoặc account khác và xây dựng quy trình backup/recovery.
 
 S3 an toàn không phải vì chỉ có một cài đặt đúng, mà vì có nhiều lớp bảo vệ hoạt động cùng nhau: chặn public access, quyền tối thiểu, giám sát, mã hóa và phục hồi dữ liệu. Đó là checklist nhỏ nhưng nên được rà lại mỗi khi tạo bucket mới.
-
-_Ảnh minh họa: `s3-security-checklist.png`_
 
 ## Nguồn tham khảo
 

@@ -13,7 +13,7 @@ pre: " <b> 3.2. </b> "
 | Publication date | To be updated |
 | Status | Published |
 | Platform | AWS Study Group - Facebook Group |
-| Published post | Facebook link to be updated |
+| Published post | [View on Facebook](https://www.facebook.com/share/p/1BhVcvncyh/) |
 | Original language | Vietnamese |
 
 The original Vietnamese version of this post is available from the language switcher.
