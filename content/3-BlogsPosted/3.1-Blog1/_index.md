@@ -13,8 +13,12 @@ pre: " <b> 3.1. </b> "
 | Publication date | To be updated |
 | Status | Published |
 | Platform | AWS Study Group - Facebook Group |
-| Published post | Facebook link to be updated |
+| Published post | [View on Facebook](https://www.facebook.com/share/p/18deroGCqx/) |
 | Original language | Vietnamese |
+
+![Serverless web application architecture on AWS](/images/3-BlogsPosted/serverless-cost-architecture.png)
+
+*Figure 1. Core layers of a serverless web application on AWS.*
 
 The original Vietnamese version of this post is available from the language switcher.
 

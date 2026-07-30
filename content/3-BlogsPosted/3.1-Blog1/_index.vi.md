@@ -13,7 +13,7 @@ pre: " <b> 3.1. </b> "
 | Ngày đăng | Sẽ cập nhật |
 | Trạng thái | Đã đăng |
 | Platform | AWS Study Group - Facebook Group |
-| Bài viết đã đăng | Sẽ cập nhật liên kết Facebook |
+| Bài viết đã đăng | [Xem trên Facebook](https://www.facebook.com/share/p/18deroGCqx/) |
 
 Web application là một trong những trường hợp dùng serverless phổ biến nhất. Mô hình trả tiền theo mức sử dụng có thể rất hiệu quả, nhưng chi phí vẫn chịu ảnh hưởng trực tiếp từ những quyết định trong kiến trúc. Khi traffic tăng, một API chưa phù hợp, ảnh quá nặng hay Lambda cấu hình theo cảm tính đều có thể làm chi phí tăng không cần thiết.
 
@@ -45,7 +45,9 @@ Nếu ứng dụng có workflow phức tạp, AWS Step Functions giúp điều p
 
 Serverless tiết kiệm nhất khi kiến trúc phù hợp với loại tải: chọn API đúng nhu cầu, phân phối và tối ưu asset hiệu quả, để file lớn vào S3, chọn database theo access pattern và đo Lambda trước khi chốt cấu hình. Tối ưu ở từng lớp nhỏ sẽ tạo khác biệt rõ rệt khi lượng người dùng tăng lên.
 
-_Ảnh minh họa: `serverless-cost-architecture.png`_
+![Kiến trúc web serverless trên AWS](/images/3-BlogsPosted/serverless-cost-architecture.png)
+
+*Hình 1. Các lớp chính của một web application serverless trên AWS.*
 
 ## Nguồn tham khảo
 
