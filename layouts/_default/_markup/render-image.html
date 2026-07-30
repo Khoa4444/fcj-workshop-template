@@ -2,4 +2,8 @@
 {{- if hasPrefix $src "/" -}}
   {{- $src = (strings.TrimPrefix "/" $src | relURL) -}}
 {{- end -}}
-<img src="{{ $src | safeURL }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }}>
+{{- $style := "" -}}
+{{- if hasPrefix .Destination "/images/4-EventParticipated/" -}}
+  {{- $style = ` style="max-width: 75%; height: auto; display: block; margin: 1rem auto;"` -}}
+{{- end -}}
+<img src="{{ $src | safeURL }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ $style | safeHTMLAttr }}>

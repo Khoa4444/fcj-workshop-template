@@ -24,7 +24,7 @@ The work connected my Computer Science background with practical AWS and MLOps e
 
 | No. | Criterion | Self-assessment | Basis for assessment |
 | --- | --- | --- | --- |
-| 1 | Professional knowledge and technical skills | Good | Applied Python, ML/XGBoost, AWS, and MLOps to complete a workflow covering data, training, evaluation, governance, and monitoring. |
+| 1 | Professional knowledge and technical skills | Fair | Applied Python, ML/XGBoost, AWS, and MLOps to complete a workflow covering data, training, evaluation, governance, and monitoring. |
 | 2 | Learning ability | Good | Proactively learned AWS services, MLOps concepts, and the limitations of synthetic data. |
 | 3 | Proactiveness | Good | Completed project documentation, workshop, blog posts, and evidence; proactively checked report content, links, and images. |
 | 4 | Responsibility | Good | Tracked work through the worklog, maintained documentation structure, and cleaned up demo resources that could incur cost. |
@@ -32,7 +32,7 @@ The work connected my Computer Science background with practical AWS and MLOps e
 | 6 | Problem-solving | Good | Analyzed issues through evidence, separated technical causes from data limitations, and prioritized verifiable solutions. |
 | 7 | Communication and presentation | Fair | Can consolidate technical work into a proposal, workshop, and blog posts; I need more practice presenting concisely to a team or review panel. |
 | 8 | Collaboration and feedback | Fair | Participated in FCAJ activities, learned from speakers, and adjusted documentation to report requirements. |
-| 9 | Security and cost awareness | Good | Recognized least privilege, secret management, manual approval, Endpoint/API cleanup, and the need not to overstate synthetic metrics. |
+| 9 | Security and cost awareness | Fair | Recognized least privilege, secret management, manual approval, Endpoint/API cleanup, and the need not to overstate synthetic metrics. |
 | 10 | Contribution to the project | Good | Completed a report set traceable from worklog and proposal through workshop, blog posts, evidence, and technical documentation. |
 | 11 | Overall | Good | Achieved the learning and prototype-building objectives with a clear MLOps workflow; I still need to expand real-world data and production-deployment experience. |
 

@@ -24,7 +24,7 @@ Quá trình thực hiện giúp tôi kết nối kiến thức Khoa học máy t
 
 | STT | Tiêu chí | Tự đánh giá | Cơ sở đánh giá |
 | --- | --- | --- | --- |
-| 1 | Kiến thức và kỹ năng chuyên môn | Tốt | Vận dụng Python, ML/XGBoost, AWS và MLOps để hoàn thiện workflow có dữ liệu, huấn luyện, đánh giá, governance và monitoring. |
+| 1 | Kiến thức và kỹ năng chuyên môn | Khá | Vận dụng Python, ML/XGBoost, AWS và MLOps để hoàn thiện workflow có dữ liệu, huấn luyện, đánh giá, governance và monitoring. |
 | 2 | Khả năng học hỏi | Tốt | Chủ động tìm hiểu dịch vụ AWS, kiến thức MLOps và các giới hạn của dữ liệu synthetic trong thời gian thực tập. |
 | 3 | Tính chủ động | Tốt | Hoàn thiện tài liệu dự án, workshop, blog và evidence; chủ động rà lỗi liên kết, ảnh và nội dung báo cáo. |
 | 4 | Tinh thần trách nhiệm | Tốt | Theo dõi công việc qua worklog, duy trì cấu trúc tài liệu và cleanup các tài nguyên demo có thể phát sinh chi phí. |
@@ -32,7 +32,7 @@ Quá trình thực hiện giúp tôi kết nối kiến thức Khoa học máy t
 | 6 | Tư duy giải quyết vấn đề | Tốt | Phân tích vấn đề theo evidence, tách nguyên nhân kỹ thuật với giới hạn dữ liệu và ưu tiên giải pháp có thể kiểm chứng. |
 | 7 | Giao tiếp và trình bày | Khá | Có thể tổng hợp nội dung kỹ thuật thành proposal, workshop và blog; cần rèn luyện thêm trình bày ngắn gọn trước nhóm hoặc hội đồng. |
 | 8 | Hợp tác và tiếp nhận phản hồi | Khá | Tham gia các hoạt động FCAJ, tiếp thu chia sẻ từ diễn giả và điều chỉnh tài liệu theo yêu cầu báo cáo. |
-| 9 | Ý thức bảo mật và chi phí | Tốt | Nhận thức về least privilege, quản lý secrets, manual approval, cleanup endpoint/API và không diễn giải quá mức metric synthetic. |
+| 9 | Ý thức bảo mật và chi phí | Khá | Nhận thức về least privilege, quản lý secrets, manual approval, cleanup endpoint/API và không diễn giải quá mức metric synthetic. |
 | 10 | Đóng góp vào dự án | Tốt | Hoàn thiện bộ báo cáo có thể theo dõi từ worklog, proposal, workshop, blog đến evidence và tài liệu kỹ thuật. |
 | 11 | Tổng thể | Tốt | Đạt mục tiêu học hỏi và xây dựng sản phẩm thử nghiệm có quy trình MLOps rõ ràng; vẫn cần mở rộng dữ liệu thực tế và kinh nghiệm production. |
 

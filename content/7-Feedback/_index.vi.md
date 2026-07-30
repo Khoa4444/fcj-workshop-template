@@ -53,8 +53,6 @@ Có thể tổ chức thêm các buổi chia sẻ tiến độ, peer review ho�
 **Điều tôi hài lòng nhất là gì?**
 Tôi hài lòng nhất với cơ hội chuyển kiến thức thành một dự án có cấu trúc rõ ràng và được tiếp cận các góc nhìn thực tế về AWS, AI, MLOps, monitoring và bảo mật.
 
-**Điều chương trình có thể cải thiện cho các thực tập sinh sau?**
-Tôi đề xuất có roadmap theo tuần, checklist chi phí/quota, template evidence thống nhất và các buổi technical review ngắn để người học nhận feedback sớm.
 
 **Tôi có sẵn sàng giới thiệu chương trình cho bạn bè không?**
 Có. Tôi sẽ giới thiệu chương trình cho những bạn muốn học AWS và AI theo hướng thực hành, sẵn sàng tự học và chủ động thử nghiệm. Giá trị của chương trình sẽ phát huy tốt nhất khi người học dành thời gian tìm hiểu sâu, đặt câu hỏi và hoàn thiện sản phẩm của mình.

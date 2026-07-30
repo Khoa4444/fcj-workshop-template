@@ -24,7 +24,7 @@ Trong quá trình học tập và phát triển chuyên môn, tôi đã tham gia
 
 &emsp;**Tên sự kiện:** First Cloud AI Journey × Agentic AI Build Week (FCAJ × AABW)
 
-&emsp;**Thời gian:** 25/07/2026
+&emsp;**Thời gian:** 09:00, 25/07/2026
 
 &emsp;**Địa điểm:** Tầng 26, Bitexco Tower, 02 Hải Triều, phường Sài Gòn, Thành phố Hồ Chí Minh
 

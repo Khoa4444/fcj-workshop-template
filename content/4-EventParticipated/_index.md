@@ -19,7 +19,7 @@ During my studies and professional development, I attended events on AWS, cloud 
 ### [Event 2 – First Cloud AI Journey × Agentic AI Build Week](4.2-Event2/)
 
 &emsp;**Event name:** First Cloud AI Journey × Agentic AI Build Week (FCAJ × AABW)<br>
-&emsp;**Time:** 25 July 2026<br>
+&emsp;**Time:** 09:00, 25 July 2026<br>
 &emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City<br>
 &emsp;**Role:** Attendee<br>
 &emsp;**Key content:** Practical Agentic AI and AWS projects, including crowd coordination, multichannel conversational ordering, Solution Architect assistance, and business-signal analysis.

@@ -10,10 +10,10 @@ pre: " <b> 3.3. </b> "
 
 | Thông tin | Chi tiết |
 |---|---|
-| Ngày đăng | 30/07/2026 |
-| Trạng thái | Đã đăng |
+| Ngày đăng | Đang chờ duyệt |
+| Trạng thái | Đang chờ duyệt |
 | Platform | AWS Study Group - Facebook Group |
-| Bài viết đã đăng | Sẽ cập nhật liên kết Facebook |
+| Liên kết Facebook | Đang chờ duyệt |
 
 ![Luồng huấn luyện mô hình với Amazon SageMaker](/images/3-BlogsPosted/sagemaker-automatic-model-tuning.png)
 

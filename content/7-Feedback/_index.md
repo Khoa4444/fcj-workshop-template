@@ -53,8 +53,6 @@ More progress-sharing sessions, peer reviews, or small demo days could help memb
 **What was I most satisfied with?**
 I was most satisfied with the opportunity to turn knowledge into a structured project and to gain practical perspectives on AWS, AI, MLOps, monitoring, and security.
 
-**What could the program improve for future interns?**
-I recommend a weekly roadmap, a cost/quota checklist, a consistent evidence template, and short technical review sessions so that learners receive feedback earlier.
 
 **Would I recommend the program to a friend?**
 Yes. I would recommend it to students who want to learn AWS and AI through practical work and who are prepared to learn independently and experiment. The program is most valuable when learners invest time in deeper research, ask questions, and complete their own deliverables.
