@@ -13,13 +13,13 @@ pre: " <b> 1.3. </b> "
 
 ### Tasks carried out this week:
 
-| Day | Task | Start | Completion | Reference |
-| --- | --- | --- | --- | --- |
-| Mon | Defined numeric, boolean, and source-indicator features. | 15/06/2026 | 15/06/2026 | `feature_schema.json` |
-| Tue | Implemented `extract_features()` for JSONL trajectories. | 16/06/2026 | 16/06/2026 | `processing_script.py` |
-| Wed | Created file/tool/command counts, diff, test/lint, and safety-flag features. | 17/06/2026 | 17/06/2026 | `processing_script.py` |
-| Thu | Created stratified 70/15/15 train/validation/test splits. | 18/06/2026 | 18/06/2026 | `data/processed/` |
-| Fri | Compared serving and preprocessing feature extractors. | 19/06/2026 | 19/06/2026 | `feature_extraction.py` |
+| Day | Task | Start | Completion |
+| --- | --- | --- | --- |
+| Mon | Defined numeric, boolean, and source-indicator features. | 15/06/2026 | 15/06/2026 |
+| Tue | Implemented `extract_features()` for JSONL trajectories. | 16/06/2026 | 16/06/2026 |
+| Wed | Created file/tool/command counts, diff, test/lint, and safety-flag features. | 17/06/2026 | 17/06/2026 |
+| Thu | Created stratified 70/15/15 train/validation/test splits. | 18/06/2026 | 18/06/2026 |
+| Fri | Compared serving and preprocessing feature extractors. | 19/06/2026 | 19/06/2026 |
 
 ### Week 3 Achievements:
 

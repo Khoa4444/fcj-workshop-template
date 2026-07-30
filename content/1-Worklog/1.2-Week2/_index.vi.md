@@ -13,13 +13,13 @@ pre: " <b> 1.2. </b> "
 
 ### Các công việc cần triển khai trong tuần này:
 
-| Thứ | Công việc | Bắt đầu | Hoàn thành | Nguồn tài liệu |
-| --- | --- | --- | --- | --- |
-| 2 | Thiết kế sáu nhãn: `safe`, `require_review`, `wrong_tool`, `hallucinated_success`, `risky`, `failed`. | 08/06/2026 | 08/06/2026 | `label_rules.py` |
-| 3 | Định nghĩa task, files, commands, test/lint, diff, safety flags và summary. | 09/06/2026 | 09/06/2026 | `sample_trajectories.jsonl` |
-| 4 | Viết generator cho scenario an toàn, risky, review, wrong-tool và failed. | 10/06/2026 | 10/06/2026 | `generate_scenarios.py` |
-| 5 | Sinh 1.200 JSONL record với seed 42 và kiểm tra nhãn. | 11/06/2026 | 11/06/2026 | `sample_trajectories.jsonl` |
-| 6 | Rà soát giới hạn dữ liệu synthetic để ghi nhận trong báo cáo. | 12/06/2026 | 12/06/2026 | `final_report_vi.md` |
+| Thứ | Công việc | Bắt đầu | Hoàn thành |
+| --- | --- | --- | --- |
+| 2 | Thiết kế sáu nhãn: `safe`, `require_review`, `wrong_tool`, `hallucinated_success`, `risky`, `failed`. | 08/06/2026 | 08/06/2026 |
+| 3 | Định nghĩa task, files, commands, test/lint, diff, safety flags và summary. | 09/06/2026 | 09/06/2026 |
+| 4 | Viết generator cho scenario an toàn, risky, review, wrong-tool và failed. | 10/06/2026 | 10/06/2026 |
+| 5 | Sinh 1.200 JSONL record với seed 42 và kiểm tra nhãn. | 11/06/2026 | 11/06/2026 |
+| 6 | Rà soát giới hạn dữ liệu synthetic để ghi nhận trong báo cáo. | 12/06/2026 | 12/06/2026 |
 
 ### Kết quả đạt được tuần 2:
 

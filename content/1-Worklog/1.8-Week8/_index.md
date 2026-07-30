@@ -13,13 +13,13 @@ pre: " <b> 1.8. </b> "
 
 ### Tasks carried out this week:
 
-| Day | Task | Start | Completion | Reference |
-| --- | --- | --- | --- | --- |
-| Mon | Ran and verified the SageMaker Pipeline execution. | 20/07/2026 | 20/07/2026 | `pipeline_execution.json` |
-| Tue | Consolidated evaluation, HPO, registry, API, and monitoring evidence. | 21/07/2026 | 21/07/2026 | `report/` |
-| Wed | Wrote the architecture and bilingual reports. | 22/07/2026 | 23/07/2026 | Final reports |
-| Thu | Prepared the project plan, worklog, and demo checklist. | 24/07/2026 | 24/07/2026 | Project plan |
-| Fri | Reviewed limitations, costs, security, and roadmap. | 25/07/2026 | 26/07/2026 | `README.md` |
+| Day | Task | Start | Completion |
+| --- | --- | --- | --- |
+| Mon | Ran and verified the SageMaker Pipeline execution. | 20/07/2026 | 20/07/2026 |
+| Tue | Consolidated evaluation, HPO, registry, API, and monitoring evidence. | 21/07/2026 | 21/07/2026 |
+| Wed | Wrote the architecture and bilingual reports. | 22/07/2026 | 23/07/2026 |
+| Thu | Prepared the project plan, worklog, and demo checklist. | 24/07/2026 | 24/07/2026 |
+| Fri | Reviewed limitations, costs, security, and roadmap. | 25/07/2026 | 26/07/2026 |
 
 ### Week 8 Achievements:
 

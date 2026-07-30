@@ -13,13 +13,13 @@ pre: " <b> 1.12. </b> "
 
 ### Tasks carried out this week:
 
-| Day | Task | Start | Completion | Reference |
-| --- | --- | --- | --- | --- |
-| Mon | Wrote and reviewed the Self-evaluation section based on outcomes, skills, and improvement areas. | 17/08/2026 | 17/08/2026 | Self-evaluation |
-| Tue | Completed the Feedback section on the FCAJ programme and proposed improvements. | 18/08/2026 | 18/08/2026 | Feedback |
-| Wed | Consolidated references, artifacts, and the GitHub link to the personal implementation version. | 19/08/2026 | 19/08/2026 | References |
-| Thu | Reviewed all content, dates, terminology, images, and links in both languages. | 20/08/2026 | 20/08/2026 | Complete report |
-| Fri | Checked the website build, completed the checklist, and prepared the report handover. | 21/08/2026 | 23/08/2026 | Hugo build, checklist |
+| Day | Task | Start | Completion |
+| --- | --- | --- | --- |
+| Mon | Wrote and reviewed the Self-evaluation section based on outcomes, skills, and improvement areas. | 17/08/2026 | 17/08/2026 |
+| Tue | Completed the Feedback section on the FCAJ programme and proposed improvements. | 18/08/2026 | 18/08/2026 |
+| Wed | Consolidated references, artifacts, and the GitHub link to the personal implementation version. | 19/08/2026 | 19/08/2026 |
+| Thu | Reviewed all content, dates, terminology, images, and links in both languages. | 20/08/2026 | 20/08/2026 |
+| Fri | Checked the website build, completed the checklist, and prepared the report handover. | 21/08/2026 | 23/08/2026 |
 
 ### Week 12 Achievements:
 

@@ -13,13 +13,13 @@ pre: " <b> 1.12. </b> "
 
 ### Các công việc cần triển khai trong tuần này:
 
-| Thứ | Công việc | Bắt đầu | Hoàn thành | Nguồn tài liệu |
-| --- | --- | --- | --- | --- |
-| 2 | Viết và rà soát phần Tự đánh giá dựa trên kết quả, kỹ năng và những điểm cần cải thiện. | 17/08/2026 | 17/08/2026 | Self-evaluation |
-| 3 | Hoàn thiện phần Feedback về chương trình FCAJ và các đề xuất cải thiện. | 18/08/2026 | 18/08/2026 | Feedback |
-| 4 | Tổng hợp tài liệu tham khảo, artifact và liên kết GitHub của phiên bản triển khai cá nhân. | 19/08/2026 | 19/08/2026 | References |
-| 5 | Rà soát toàn bộ nội dung, ngày tháng, thuật ngữ, ảnh và liên kết ở hai ngôn ngữ. | 20/08/2026 | 20/08/2026 | Báo cáo hoàn chỉnh |
-| 6 | Kiểm tra bản dựng website, hoàn tất checklist và chuẩn bị bàn giao báo cáo. | 21/08/2026 | 23/08/2026 | Hugo build, checklist |
+| Thứ | Công việc | Bắt đầu | Hoàn thành |
+| --- | --- | --- | --- |
+| 2 | Viết và rà soát phần Tự đánh giá dựa trên kết quả, kỹ năng và những điểm cần cải thiện. | 17/08/2026 | 17/08/2026 |
+| 3 | Hoàn thiện phần Feedback về chương trình FCAJ và các đề xuất cải thiện. | 18/08/2026 | 18/08/2026 |
+| 4 | Tổng hợp tài liệu tham khảo, artifact và liên kết GitHub của phiên bản triển khai cá nhân. | 19/08/2026 | 19/08/2026 |
+| 5 | Rà soát toàn bộ nội dung, ngày tháng, thuật ngữ, ảnh và liên kết ở hai ngôn ngữ. | 20/08/2026 | 20/08/2026 |
+| 6 | Kiểm tra bản dựng website, hoàn tất checklist và chuẩn bị bàn giao báo cáo. | 21/08/2026 | 23/08/2026 |
 
 ### Kết quả đạt được tuần 12:
 

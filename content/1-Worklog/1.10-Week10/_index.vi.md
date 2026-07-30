@@ -13,13 +13,13 @@ pre: " <b> 1.10. </b> "
 
 ### Các công việc cần triển khai trong tuần này:
 
-| Thứ | Công việc | Bắt đầu | Hoàn thành | Nguồn tài liệu |
-| --- | --- | --- | --- | --- |
-| 2 | Sắp xếp ảnh, ghi chú và tài liệu minh chứng của các sự kiện đã tham gia. | 03/08/2026 | 03/08/2026 | Event evidence |
-| 3 | Hoàn thiện báo cáo Event 1: Cloud Architect, gồm thời gian 11/07/2026 và nội dung chính. | 04/08/2026 | 04/08/2026 | Event 1 |
-| 4 | Hoàn thiện báo cáo Event 2: FCAJ × AABW, xác định vai trò là người tham dự. | 05/08/2026 | 05/08/2026 | Event 2 |
-| 5 | Kiểm tra bản dịch tiếng Anh, thông tin địa điểm và các kết quả học hỏi của từng sự kiện. | 06/08/2026 | 06/08/2026 | Nội dung Events |
-| 6 | Chuẩn hóa đường dẫn ảnh trong thư mục static và kiểm tra các liên kết hiển thị trên website. | 07/08/2026 | 09/08/2026 | static/images/4-EventParticipated |
+| Thứ | Công việc | Bắt đầu | Hoàn thành |
+| --- | --- | --- | --- |
+| 2 | Sắp xếp ảnh, ghi chú và tài liệu minh chứng của các sự kiện đã tham gia. | 03/08/2026 | 03/08/2026 |
+| 3 | Hoàn thiện báo cáo Event 1: Cloud Architect, gồm thời gian 11/07/2026 và nội dung chính. | 04/08/2026 | 04/08/2026 |
+| 4 | Hoàn thiện báo cáo Event 2: FCAJ × AABW, xác định vai trò là người tham dự. | 05/08/2026 | 05/08/2026 |
+| 5 | Kiểm tra bản dịch tiếng Anh, thông tin địa điểm và các kết quả học hỏi của từng sự kiện. | 06/08/2026 | 06/08/2026 |
+| 6 | Chuẩn hóa đường dẫn ảnh trong thư mục static và kiểm tra các liên kết hiển thị trên website. | 07/08/2026 | 09/08/2026 |
 
 ### Kết quả đạt được tuần 10:
 

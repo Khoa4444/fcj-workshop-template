@@ -13,13 +13,13 @@ pre: " <b> 1.4. </b> "
 
 ### Tasks carried out this week:
 
-| Day | Task | Start | Completion | Reference |
-| --- | --- | --- | --- | --- |
-| Mon | Built a multiclass XGBoost training script and LabelEncoder. | 22/06/2026 | 22/06/2026 | `train_xgboost.py` |
-| Tue | Saved the model and encoder as inference artifacts. | 23/06/2026 | 23/06/2026 | `xgboost_model.json` |
-| Wed | Implemented held-out test-set evaluation. | 24/06/2026 | 24/06/2026 | `evaluate_pipeline.py` |
-| Thu | Evaluated accuracy, macro F1, risky recall, and risky false-negative rate. | 25/06/2026 | 25/06/2026 | `evaluation_report.json` |
-| Fri | Selected `risky_recall >= 0.85` as the quality gate. | 26/06/2026 | 26/06/2026 | `sagemaker_pipeline.py` |
+| Day | Task | Start | Completion |
+| --- | --- | --- | --- |
+| Mon | Built a multiclass XGBoost training script and LabelEncoder. | 22/06/2026 | 22/06/2026 |
+| Tue | Saved the model and encoder as inference artifacts. | 23/06/2026 | 23/06/2026 |
+| Wed | Implemented held-out test-set evaluation. | 24/06/2026 | 24/06/2026 |
+| Thu | Evaluated accuracy, macro F1, risky recall, and risky false-negative rate. | 25/06/2026 | 25/06/2026 |
+| Fri | Selected `risky_recall >= 0.85` as the quality gate. | 26/06/2026 | 26/06/2026 |
 
 ### Week 4 Achievements:
 

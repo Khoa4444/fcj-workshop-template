@@ -13,13 +13,13 @@ pre: " <b> 1.10. </b> "
 
 ### Tasks carried out this week:
 
-| Day | Task | Start | Completion | Reference |
-| --- | --- | --- | --- | --- |
-| Mon | Organized photos, notes, and supporting materials from the events attended. | 03/08/2026 | 03/08/2026 | Event evidence |
-| Tue | Completed the Event 1 report for Cloud Architect, including its 11 July 2026 date and key content. | 04/08/2026 | 04/08/2026 | Event 1 |
-| Wed | Completed the Event 2 report for FCAJ × AABW and identified the role as attendee. | 05/08/2026 | 05/08/2026 | Event 2 |
-| Thu | Reviewed the English translations, venue information, and learning outcomes for each event. | 06/08/2026 | 06/08/2026 | Events content |
-| Fri | Standardized image paths in the static folder and checked the links displayed on the report website. | 07/08/2026 | 09/08/2026 | static/images/4-EventParticipated |
+| Day | Task | Start | Completion |
+| --- | --- | --- | --- |
+| Mon | Organized photos, notes, and supporting materials from the events attended. | 03/08/2026 | 03/08/2026 |
+| Tue | Completed the Event 1 report for Cloud Architect, including its 11 July 2026 date and key content. | 04/08/2026 | 04/08/2026 |
+| Wed | Completed the Event 2 report for FCAJ × AABW and identified the role as attendee. | 05/08/2026 | 05/08/2026 |
+| Thu | Reviewed the English translations, venue information, and learning outcomes for each event. | 06/08/2026 | 06/08/2026 |
+| Fri | Standardized image paths in the static folder and checked the links displayed on the report website. | 07/08/2026 | 09/08/2026 |
 
 ### Week 10 Achievements:
 

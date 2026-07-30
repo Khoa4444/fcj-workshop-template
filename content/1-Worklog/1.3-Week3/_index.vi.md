@@ -13,13 +13,13 @@ pre: " <b> 1.3. </b> "
 
 ### Các công việc cần triển khai trong tuần này:
 
-| Thứ | Công việc | Bắt đầu | Hoàn thành | Nguồn tài liệu |
-| --- | --- | --- | --- | --- |
-| 2 | Xác định feature numeric, boolean và source indicator. | 15/06/2026 | 15/06/2026 | `feature_schema.json` |
-| 3 | Viết `extract_features()` cho JSONL trajectory. | 16/06/2026 | 16/06/2026 | `processing_script.py` |
-| 4 | Tạo feature đếm file/tool/command, diff, test/lint và safety flags. | 17/06/2026 | 17/06/2026 | `processing_script.py` |
-| 5 | Chia stratified train/validation/test theo 70/15/15. | 18/06/2026 | 18/06/2026 | `data/processed/` |
-| 6 | Đối chiếu feature extractor serving với preprocessing. | 19/06/2026 | 19/06/2026 | `feature_extraction.py` |
+| Thứ | Công việc | Bắt đầu | Hoàn thành |
+| --- | --- | --- | --- |
+| 2 | Xác định feature numeric, boolean và source indicator. | 15/06/2026 | 15/06/2026 |
+| 3 | Viết `extract_features()` cho JSONL trajectory. | 16/06/2026 | 16/06/2026 |
+| 4 | Tạo feature đếm file/tool/command, diff, test/lint và safety flags. | 17/06/2026 | 17/06/2026 |
+| 5 | Chia stratified train/validation/test theo 70/15/15. | 18/06/2026 | 18/06/2026 |
+| 6 | Đối chiếu feature extractor serving với preprocessing. | 19/06/2026 | 19/06/2026 |
 
 ### Kết quả đạt được tuần 3:
 

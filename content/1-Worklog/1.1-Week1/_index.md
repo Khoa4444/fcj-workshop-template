@@ -13,13 +13,13 @@ pre: " <b> 1.1. </b> "
 
 ### Tasks carried out this week:
 
-| Day | Task | Start | Completion | Reference |
-| --- | --- | --- | --- | --- |
-| Mon | Analyzed agent file-reading, code-editing, test-running, and summarization behavior. | 01/06/2026 | 01/06/2026 | `README.md` |
-| Tue | Identified sensitive files, destructive commands, unproven tests, and out-of-scope changes as risks. | 02/06/2026 | 02/06/2026 | `data_generation/label_rules.py` |
-| Wed | Studied S3, Processing, Training, Model Registry, Endpoint, Lambda, and API Gateway. | 03/06/2026 | 03/06/2026 | `report/architecture.md` |
-| Thu | Designed the overall architecture and MVP scope. | 04/06/2026 | 05/06/2026 | Project plan |
-| Fri | Initialized the repository and reviewed implementation modules. | 05/06/2026 | 05/06/2026 | Project tree |
+| Day | Task | Start | Completion |
+| --- | --- | --- | --- |
+| Mon | Analyzed agent file-reading, code-editing, test-running, and summarization behavior. | 01/06/2026 | 01/06/2026 |
+| Tue | Identified sensitive files, destructive commands, unproven tests, and out-of-scope changes as risks. | 02/06/2026 | 02/06/2026 |
+| Wed | Studied S3, Processing, Training, Model Registry, Endpoint, Lambda, and API Gateway. | 03/06/2026 | 03/06/2026 |
+| Thu | Designed the overall architecture and MVP scope. | 04/06/2026 | 05/06/2026 |
+| Fri | Initialized the repository and reviewed implementation modules. | 05/06/2026 | 05/06/2026 |
 
 ### Week 1 Achievements:
 

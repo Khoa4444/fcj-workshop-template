@@ -13,13 +13,13 @@ pre: " <b> 1.6. </b> "
 
 ### Tasks carried out this week:
 
-| Day | Task | Start | Completion | Reference |
-| --- | --- | --- | --- | --- |
-| Mon | Implemented an inference handler that accepts trajectory JSON and returns class probabilities. | 06/07/2026 | 06/07/2026 | `inference.py` |
-| Tue | Built a decision policy with score thresholds and hard safety rules. | 07/07/2026 | 07/07/2026 | `decision_policy.py` |
-| Wed | Implemented Lambda endpoint invocation, JSON validation, and CORS responses. | 08/07/2026 | 08/07/2026 | `lambda_handler.py` |
-| Thu | Configured `POST /score-agent-run` and smoke-tested the endpoint. | 09/07/2026 | 09/07/2026 | API/endpoint reports |
-| Fri | Ran the Mini Agent demo and captured trajectory and API responses. | 10/07/2026 | 10/07/2026 | `agent_api_demo.json` |
+| Day | Task | Start | Completion |
+| --- | --- | --- | --- |
+| Mon | Implemented an inference handler that accepts trajectory JSON and returns class probabilities. | 06/07/2026 | 06/07/2026 |
+| Tue | Built a decision policy with score thresholds and hard safety rules. | 07/07/2026 | 07/07/2026 |
+| Wed | Implemented Lambda endpoint invocation, JSON validation, and CORS responses. | 08/07/2026 | 08/07/2026 |
+| Thu | Configured `POST /score-agent-run` and smoke-tested the endpoint. | 09/07/2026 | 09/07/2026 |
+| Fri | Ran the Mini Agent demo and captured trajectory and API responses. | 10/07/2026 | 10/07/2026 |
 
 ### Week 6 Achievements:
 

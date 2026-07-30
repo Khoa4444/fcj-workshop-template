@@ -13,13 +13,13 @@ pre: " <b> 1.4. </b> "
 
 ### Các công việc cần triển khai trong tuần này:
 
-| Thứ | Công việc | Bắt đầu | Hoàn thành | Nguồn tài liệu |
-| --- | --- | --- | --- | --- |
-| 2 | Xây training script XGBoost đa lớp và LabelEncoder. | 22/06/2026 | 22/06/2026 | `train_xgboost.py` |
-| 3 | Lưu model và encoder thành artifact inference. | 23/06/2026 | 23/06/2026 | `xgboost_model.json` |
-| 4 | Viết evaluator cho held-out test set. | 24/06/2026 | 24/06/2026 | `evaluate_pipeline.py` |
-| 5 | Đánh giá accuracy, macro F1, risky recall và false-negative rate. | 25/06/2026 | 25/06/2026 | `evaluation_report.json` |
-| 6 | Chọn `risky_recall >= 0.85` làm quality gate. | 26/06/2026 | 26/06/2026 | `sagemaker_pipeline.py` |
+| Thứ | Công việc | Bắt đầu | Hoàn thành |
+| --- | --- | --- | --- |
+| 2 | Xây training script XGBoost đa lớp và LabelEncoder. | 22/06/2026 | 22/06/2026 |
+| 3 | Lưu model và encoder thành artifact inference. | 23/06/2026 | 23/06/2026 |
+| 4 | Viết evaluator cho held-out test set. | 24/06/2026 | 24/06/2026 |
+| 5 | Đánh giá accuracy, macro F1, risky recall và false-negative rate. | 25/06/2026 | 25/06/2026 |
+| 6 | Chọn `risky_recall >= 0.85` làm quality gate. | 26/06/2026 | 26/06/2026 |
 
 ### Kết quả đạt được tuần 4:
 

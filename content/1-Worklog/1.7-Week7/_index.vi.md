@@ -13,13 +13,13 @@ pre: " <b> 1.7. </b> "
 
 ### Các công việc cần triển khai trong tuần này:
 
-| Thứ | Công việc | Bắt đầu | Hoàn thành | Nguồn tài liệu |
-| --- | --- | --- | --- | --- |
-| 2 | Bật 100% endpoint data capture vào S3. | 13/07/2026 | 13/07/2026 | `enable_data_capture.py` |
-| 3 | Ghi `RiskScore` và `BlockedDecisions` từ Lambda vào CloudWatch. | 14/07/2026 | 14/07/2026 | `lambda_handler.py` |
-| 4 | Chuẩn bị dashboard CloudWatch. | 15/07/2026 | 15/07/2026 | `cloudwatch_dashboard.json` |
-| 5 | Phân tích yêu cầu input phẳng của Default Model Monitor. | 16/07/2026 | 16/07/2026 | `model_monitor_config.py` |
-| 6 | Rà soát cleanup endpoint, capture data và tài nguyên còn lại. | 17/07/2026 | 17/07/2026 | `README.md` |
+| Thứ | Công việc | Bắt đầu | Hoàn thành |
+| --- | --- | --- | --- |
+| 2 | Bật 100% endpoint data capture vào S3. | 13/07/2026 | 13/07/2026 |
+| 3 | Ghi `RiskScore` và `BlockedDecisions` từ Lambda vào CloudWatch. | 14/07/2026 | 14/07/2026 |
+| 4 | Chuẩn bị dashboard CloudWatch. | 15/07/2026 | 15/07/2026 |
+| 5 | Phân tích yêu cầu input phẳng của Default Model Monitor. | 16/07/2026 | 16/07/2026 |
+| 6 | Rà soát cleanup endpoint, capture data và tài nguyên còn lại. | 17/07/2026 | 17/07/2026 |
 
 ### Kết quả đạt được tuần 7:
 

@@ -13,13 +13,13 @@ pre: " <b> 1.5. </b> "
 
 ### Tasks carried out this week:
 
-| Day | Task | Start | Completion | Reference |
-| --- | --- | --- | --- | --- |
-| Mon | Configured HPO with `validation:macro_f1` as the objective. | 29/06/2026 | 29/06/2026 | `run_hpo.py` |
-| Tue | Reviewed the best job and selected hyperparameters. | 30/06/2026 | 30/06/2026 | `best_model_metrics.json` |
-| Wed | Created the `agent-risk-scorer` model package group. | 01/07/2026 | 01/07/2026 | `register_model.py` |
-| Thu | Designed a Pipeline with Processing, Training, Evaluation, and ConditionStep. | 02/07/2026 | 02/07/2026 | `sagemaker_pipeline.py` |
-| Fri | Set the default approval status to `PendingManualApproval`. | 03/07/2026 | 03/07/2026 | `model_registry.json` |
+| Day | Task | Start | Completion |
+| --- | --- | --- | --- |
+| Mon | Configured HPO with `validation:macro_f1` as the objective. | 29/06/2026 | 29/06/2026 |
+| Tue | Reviewed the best job and selected hyperparameters. | 30/06/2026 | 30/06/2026 |
+| Wed | Created the `agent-risk-scorer` model package group. | 01/07/2026 | 01/07/2026 |
+| Thu | Designed a Pipeline with Processing, Training, Evaluation, and ConditionStep. | 02/07/2026 | 02/07/2026 |
+| Fri | Set the default approval status to `PendingManualApproval`. | 03/07/2026 | 03/07/2026 |
 
 ### Week 5 Achievements:
 

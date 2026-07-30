@@ -13,13 +13,13 @@ pre: " <b> 1.2. </b> "
 
 ### Tasks carried out this week:
 
-| Day | Task | Start | Completion | Reference |
-| --- | --- | --- | --- | --- |
-| Mon | Designed six labels: `safe`, `require_review`, `wrong_tool`, `hallucinated_success`, `risky`, and `failed`. | 08/06/2026 | 08/06/2026 | `label_rules.py` |
-| Tue | Defined task, files, commands, test/lint, diff, safety flags, and summary fields. | 09/06/2026 | 09/06/2026 | `sample_trajectories.jsonl` |
-| Wed | Implemented generators for safe, risky, review, wrong-tool, and failed scenarios. | 10/06/2026 | 10/06/2026 | `generate_scenarios.py` |
-| Thu | Generated 1,200 JSONL records using seed 42 and checked label consistency. | 11/06/2026 | 11/06/2026 | `sample_trajectories.jsonl` |
-| Fri | Reviewed synthetic-data limitations for reporting. | 12/06/2026 | 12/06/2026 | `final_report_vi.md` |
+| Day | Task | Start | Completion |
+| --- | --- | --- | --- |
+| Mon | Designed six labels: `safe`, `require_review`, `wrong_tool`, `hallucinated_success`, `risky`, and `failed`. | 08/06/2026 | 08/06/2026 |
+| Tue | Defined task, files, commands, test/lint, diff, safety flags, and summary fields. | 09/06/2026 | 09/06/2026 |
+| Wed | Implemented generators for safe, risky, review, wrong-tool, and failed scenarios. | 10/06/2026 | 10/06/2026 |
+| Thu | Generated 1,200 JSONL records using seed 42 and checked label consistency. | 11/06/2026 | 11/06/2026 |
+| Fri | Reviewed synthetic-data limitations for reporting. | 12/06/2026 | 12/06/2026 |
 
 ### Week 2 Achievements:
 

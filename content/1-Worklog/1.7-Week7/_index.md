@@ -13,13 +13,13 @@ pre: " <b> 1.7. </b> "
 
 ### Tasks carried out this week:
 
-| Day | Task | Start | Completion | Reference |
-| --- | --- | --- | --- | --- |
-| Mon | Enabled 100% endpoint data capture to S3. | 13/07/2026 | 13/07/2026 | `enable_data_capture.py` |
-| Tue | Emitted `RiskScore` and `BlockedDecisions` metrics from Lambda to CloudWatch. | 14/07/2026 | 14/07/2026 | `lambda_handler.py` |
-| Wed | Prepared the CloudWatch dashboard configuration. | 15/07/2026 | 15/07/2026 | `cloudwatch_dashboard.json` |
-| Thu | Analyzed Default Model Monitor's flat-input requirement. | 16/07/2026 | 16/07/2026 | `model_monitor_config.py` |
-| Fri | Reviewed endpoint, capture-data, and residual-resource cleanup. | 17/07/2026 | 17/07/2026 | `README.md` |
+| Day | Task | Start | Completion |
+| --- | --- | --- | --- |
+| Mon | Enabled 100% endpoint data capture to S3. | 13/07/2026 | 13/07/2026 |
+| Tue | Emitted `RiskScore` and `BlockedDecisions` metrics from Lambda to CloudWatch. | 14/07/2026 | 14/07/2026 |
+| Wed | Prepared the CloudWatch dashboard configuration. | 15/07/2026 | 15/07/2026 |
+| Thu | Analyzed Default Model Monitor's flat-input requirement. | 16/07/2026 | 16/07/2026 |
+| Fri | Reviewed endpoint, capture-data, and residual-resource cleanup. | 17/07/2026 | 17/07/2026 |
 
 ### Week 7 Achievements:
 
