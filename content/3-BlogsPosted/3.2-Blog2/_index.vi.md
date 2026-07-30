@@ -1,5 +1,5 @@
 ---
-title: "5 lỗi S3 phổ biến khiến dữ liệu dễ bị lộ"
+title: "Blog 2"
 date: 2026-07-30
 weight: 2
 chapter: false

@@ -1,10 +1,13 @@
 ---
-title: "Các bài blog đã đăng"
+title: "Các bài blogs đã đăng"
 date: 2026-07-30
 weight: 3
 chapter: false
 pre: " <b> 3. </b> "
 ---
+
+Phần này liệt kê các bài blog tôi đã đăng trên [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj).
+
 ### [Blog 1 - Tối ưu chi phí cho web serverless trên AWS](3.1-Blog1/)
 
 Bài viết trình bày các điểm thiết kế ảnh hưởng trực tiếp đến chi phí của web serverless: chọn API phù hợp, phân phối nội dung qua CDN, lưu dữ liệu đúng lớp và cấu hình Lambda theo số liệu đo thực tế.

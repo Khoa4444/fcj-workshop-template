@@ -1,10 +1,12 @@
 ---
-title: "Published Blog Posts"
+title: "Blogs Posted"
 date: 2026-07-30
 weight: 3
 chapter: false
 pre: " <b> 3. </b> "
 ---
+
+This section lists the blog posts I have published to [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj).
 
 ### [Blog 1 - Optimizing Costs for Serverless Web Applications on AWS](3.1-Blog1/)
 

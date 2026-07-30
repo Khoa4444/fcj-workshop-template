@@ -1,5 +1,5 @@
 ---
-title: "Good Model Metrics Are Not Enough: Why ML Still Needs an Approval Process"
+title: "Blog 3"
 date: 2026-07-30
 weight: 3
 chapter: false

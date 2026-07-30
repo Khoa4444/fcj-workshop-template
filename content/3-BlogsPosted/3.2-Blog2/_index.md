@@ -1,5 +1,5 @@
 ---
-title: "Five Common S3 Mistakes That Can Expose Data"
+title: "Blog 2"
 date: 2026-07-30
 weight: 2
 chapter: false

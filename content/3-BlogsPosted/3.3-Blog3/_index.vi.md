@@ -1,5 +1,5 @@
 ---
-title: "Model đạt metric tốt chưa đủ: vì sao ML vẫn cần quy trình phê duyệt?"
+title: "Blog 3"
 date: 2026-07-30
 weight: 3
 chapter: false
