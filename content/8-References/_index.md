@@ -30,7 +30,7 @@ Service-specific references are also listed in the relevant Proposal, Workshop, 
 - [Reference source-code repository](https://github.com/tanh1c/agent-run-risk-scorer)
 - [My personal implementation – AI Coding Agent Risk Scorer](https://github.com/Khoa4444/ai-coding-agent-risk-scorer.git): a similar project version that I developed independently to practice and extend ideas for assessing AI coding-agent risk.
 - [Project demo video](https://youtu.be/9JFBykVPzg0?si=272vc2X1E-PUFxl1)
-- [Published bilingual internship-report website](https://khoa4444.github.io/fcj-workshop-template/)
+- [Published bilingual internship-report website](https://khoa4444.github.io/fcaj-DuongDangKhoa-internship/)
 
 ---
 
