@@ -13,7 +13,7 @@ pre: " <b> 3.3. </b> "
 | Ngày đăng | 31/07/2026 |
 | Trạng thái | Đã đăng |
 | Platform | AWS Study Group - Facebook Group |
-| Liên kết Facebook | [Xem bài viết](https://www.facebook.com/share/p/1GvynuCYcp/) |
+| Liên kết Facebook | [Xem trên Facebook](https://www.facebook.com/share/p/1GvynuCYcp/) |
 
 ![Luồng huấn luyện mô hình với Amazon SageMaker](/images/3-BlogsPosted/sagemaker-automatic-model-tuning.png)
 

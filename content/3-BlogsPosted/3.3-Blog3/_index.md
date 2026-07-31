@@ -13,7 +13,7 @@ pre: " <b> 3.3. </b> "
 | Publication date | 31/07/2026 |
 | Status | Published |
 | Platform | AWS Study Group - Facebook Group |
-| Facebook link | [View post](https://www.facebook.com/share/p/1GvynuCYcp/) |
+| Facebook link | [View on Facebook](https://www.facebook.com/share/p/1GvynuCYcp/) |
 
 ![Model-training flow with Amazon SageMaker](/images/3-BlogsPosted/sagemaker-automatic-model-tuning.png)
 
