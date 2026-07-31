@@ -1,5 +1,5 @@
 ---
-title: "Tired of Manual Hyperparameter Tuning? Try SageMaker Automatic Model Tuning"
+title: "Optimize Hyperparameters with SageMaker Automatic Model Tuning"
 date: 2026-07-30
 weight: 3
 chapter: false
@@ -19,42 +19,64 @@ pre: " <b> 3.3. </b> "
 
 *Figure 1. Amazon SageMaker creates a Training Job from a notebook, uses data in Amazon S3, stores model artifacts in S3, and sends logs and metrics to Amazon CloudWatch.*
 
-Machine-learning work has a stage that can easily consume an endless amount of time: the model can already train and the data may be sound, yet it is still unclear which learning rate, maximum depth, or regularization settings will produce better results.
+# Optimize Hyperparameters with Amazon SageMaker Automatic Model Tuning: letting the model find its “sweet spot”
 
-Trying a few settings manually is simple. But as the number of hyperparameters grows, the number of possible combinations increases rapidly. Running each experiment and recording it by hand is not only time-consuming; it also makes it difficult to know whether a stronger configuration has been missed.
+A good machine-learning model does not come only from clean data or a suitable algorithm. One small configuration layer can have a major effect on the final result: **hyperparameters**.
 
-Amazon SageMaker Automatic Model Tuning (AMT) is designed to address this problem.
+For example, when training XGBoost, we need to decide the learning rate, maximum tree depth, regularization coefficients, and number of training rounds. These are not parameters that the model learns directly from the data. They are the “knobs” an ML practitioner sets before learning begins. If they are not chosen appropriately, the model can learn slowly, overfit, or deliver lower accuracy than expected.
 
-Instead of creating many training jobs manually, I only need to prepare three things:
+The difficulty is that the hyperparameter-combination space is often very large. Trying every configuration manually is time-consuming, hard to reproduce, and quickly becomes costly when each trial requires training infrastructure to be provisioned.
 
-* **Training job:** the model or algorithm to train, such as XGBoost.
-* **Objective metric:** the metric to optimize, such as `validation:accuracy`, macro F1, or risky recall.
-* **Search space:** the ranges of hyperparameter values to explore.
+This is where **Amazon SageMaker Automatic Model Tuning (AMT)** becomes useful.
 
-SageMaker AMT then creates multiple trials automatically. Each trial is a SageMaker Training Job with a different hyperparameter configuration. When the process finishes, I can inspect the best trial, the model it produced, its logs, and the hyperparameter values that were used.
+## What does AMT do?
 
-## An XGBoost search-space example
+Instead of manually coordinating dozens of experiments, an ML practitioner only needs to prepare three things:
 
-For XGBoost, AMT can explore ranges such as:
+- A training job.
+- An objective metric to optimize, such as validation accuracy.
+- A range of values to explore for each hyperparameter.
 
-* `eta` (learning rate): 0.1 to 0.5.
-* `alpha` (L1 regularization): 0.01 to 0.5.
-* `max_depth`: 1 to 10.
-* `min_child_weight`: 0 to 2.
+SageMaker AMT then creates and orchestrates training jobs, tracks metrics, compares results, and finds stronger hyperparameter combinations. SageMaker manages the training infrastructure, containers, logs, model artifacts, and experiment history.
 
-The important point is not to take the best trial and stop there. The more interesting part is examining the full set of results.
+## An XGBoost example
 
-If trials with `eta` near 0.5 often produce stronger metrics, the next run can expand that range for further exploration. If `max_depth` works well only at a few values, the search space can be narrowed to avoid spending trials on weak configurations. HPO therefore does more than select one good set of values: it also helps reveal which hyperparameters the model is sensitive to.
+In an AWS hands-on example, an XGBoost model is used to classify handwritten digits from 0 to 9. Training and validation data are uploaded to Amazon S3; SageMaker uses a ready-made XGBoost image, provisions training resources, and saves the model when the run completes.
 
-In SageMaker, trials can be viewed in the console like ordinary training jobs: hyperparameters, input data, run time, CloudWatch logs, and metrics all have a history. This is useful when comparing trials or explaining why a particular model was selected.
+At first, we can run one training job to validate the pipeline. Next, rather than fixing every value, we define ranges to search, for example:
 
-## Applying it to the AI Agent Risk Scorer
+- `alpha`: 0.01 to 0.5.
+- `eta` (learning rate): 0.1 to 0.5.
+- `min_child_weight`: 0 to 2.
+- `max_depth`: integer values from 1 to 10.
 
-For the AI Agent Risk Scorer project, this is especially important: optimization should not focus only on accuracy. If the goal is to reduce missed dangerous trajectories, risky recall or the risky false-negative rate represents risk more directly. Selecting the right objective metric matters as much as running many trials.
+AMT samples different combinations in this space, runs the model, and measures `validation:accuracy`. With accuracy as the objective to maximize, each run becomes a documented experiment rather than a guess at which settings may work.
 
-Finally, HPO has a cost because every trial is a training job. It is best to start with a well-grounded search space, limit the number of trials with `max_jobs`, monitor the results, and then run the next iteration with a more focused range. After selecting a strong model, evaluation, model registry, approval, and monitoring are still required before production deployment.
+## Why is the Bayesian strategy notable?
 
-In short, SageMaker AMT does not replace ML reasoning, but it turns “trying each hyperparameter set manually” into a process that is systematic, measurable, and easier to repeat.
+This example uses a **Bayesian** search strategy. Its strength is that later trials can use the results of earlier trials to prioritize promising regions of the hyperparameter space.
+
+In the demonstration, 50 trials were performed with up to three jobs running in parallel. The best trial achieved approximately **89.815%** validation accuracy. The important value, however, is not only the “best configuration.” By visualizing all trials, we can also identify trends:
+
+- `eta` values near the upper end of the tested range produced better results than values near 0.
+- `alpha` showed the opposite tendency.
+- `max_depth` performed well only in certain value ranges.
+
+These observations help an ML team go beyond a temporary optimum. The team can narrow or expand the search ranges for the next optimization cycle and gain a clearer understanding of which hyperparameters the model is sensitive to.
+
+## Practical lessons
+
+Hyperparameter tuning should not be treated as a secondary step after a model already exists. It is part of a disciplined ML-development process:
+
+1. Select a metric that accurately reflects the business or technical objective.
+2. Start with a search range based on an understanding of the algorithm.
+3. Track every trial, its cost, and its training logs.
+4. Visualize results to learn from both strong and weak regions.
+5. Refine the search space in subsequent iterations.
+
+SageMaker AMT does not replace ML reasoning. It reduces repetitive operational and experimentation work so we can focus on more important decisions: whether the data are good enough, whether the metric is appropriate, whether the proposed ranges are reasonable, and what the model is actually learning.
+
+If you are using AWS to build a machine-learning pipeline, AMT is worth considering as a way to turn manual “knob turning” into a systematic, observable, and scalable process.
 
 ## References
 

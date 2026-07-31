@@ -1,5 +1,5 @@
 ---
-title: "Tuning hyperparameter thủ công mãi? Thử SageMaker Automatic Model Tuning"
+title: "Tối ưu Hyperparameter với SageMaker Automatic Model Tuning"
 date: 2026-07-30
 weight: 3
 chapter: false
@@ -19,42 +19,64 @@ pre: " <b> 3.3. </b> "
 
 *Hình 1. Amazon SageMaker tạo Training Job từ notebook, dùng dữ liệu trên Amazon S3, lưu model artifact trên S3 và ghi log, metric lên Amazon CloudWatch.*
 
-Làm machine learning có một đoạn rất dễ “mất thời gian vô tận”: model đã train được, dữ liệu cũng ổn, nhưng chưa biết nên đặt learning rate, max depth, regularization thế nào để kết quả tốt hơn.
+# Tối ưu Hyperparameter với Amazon SageMaker Automatic Model Tuning: để mô hình tự tìm “điểm ngọt”
 
-Thử tay vài bộ thì dễ. Nhưng khi số hyperparameter tăng lên, số tổ hợp có thể thử sẽ tăng rất nhanh. Lúc đó, chạy từng lần rồi ghi chép lại không chỉ tốn công mà còn khó biết mình đã bỏ lỡ cấu hình tốt nào.
+Một mô hình machine learning tốt không chỉ đến từ dữ liệu sạch hay thuật toán phù hợp. Có một lớp thiết lập nhỏ nhưng ảnh hưởng rất lớn đến kết quả cuối cùng: **hyperparameter**.
 
-Amazon SageMaker Automatic Model Tuning (AMT) sinh ra để xử lý phần này.
+Ví dụ, khi huấn luyện XGBoost, ta phải quyết định learning rate, độ sâu tối đa của cây, hệ số regularization, số vòng lặp huấn luyện… Đây không phải là các tham số mà mô hình tự học từ dữ liệu. Chúng là những “núm vặn” do người làm ML thiết lập trước khi quá trình học bắt đầu. Chọn chưa hợp lý, mô hình có thể học chậm, overfit hoặc cho độ chính xác không như mong muốn.
 
-Thay vì tự tạo nhiều training job, mình chỉ cần chuẩn bị ba thứ:
+Vấn đề là: không gian kết hợp của các hyperparameter thường rất lớn. Thử tay từng cấu hình vừa mất thời gian, vừa khó lặp lại, lại nhanh chóng trở thành một công việc tốn kém nếu mỗi lần thử đều cần khởi tạo hạ tầng để huấn luyện.
 
-* **Training job:** model hoặc thuật toán muốn train, ví dụ XGBoost.
-* **Objective metric:** chỉ số muốn tối ưu, ví dụ `validation:accuracy`, macro F1 hoặc risky recall.
-* **Search space:** khoảng giá trị cho những hyperparameter cần thử.
+Đó là lúc **Amazon SageMaker Automatic Model Tuning (AMT)** trở nên hữu ích.
 
-Sau đó SageMaker AMT sẽ tự tạo nhiều trial. Mỗi trial là một SageMaker Training Job với một cấu hình hyperparameter khác nhau. Khi hoàn tất, mình có thể xem trial nào tốt nhất, model nào tạo ra nó, log ra sao và các giá trị hyperparameter đã được dùng.
+## AMT làm gì?
 
-## Ví dụ search space với XGBoost
+Thay vì phải tự điều phối hàng chục lần chạy thử, người làm ML chỉ cần chuẩn bị ba thứ:
 
-Với XGBoost, có thể cho AMT khám phá các khoảng như:
+- Một training job.
+- Chỉ số mục tiêu cần tối ưu, chẳng hạn validation accuracy.
+- Khoảng giá trị muốn khám phá cho từng hyperparameter.
 
-* `eta` (learning rate): từ 0.1 đến 0.5.
-* `alpha` (L1 regularization): từ 0.01 đến 0.5.
-* `max_depth`: từ 1 đến 10.
-* `min_child_weight`: từ 0 đến 2.
+Sau đó, SageMaker AMT sẽ tạo và điều phối các training job, theo dõi metric, so sánh kết quả và tìm ra tổ hợp hyperparameter tốt hơn. Hạ tầng chạy huấn luyện, container, log, artifact của mô hình và lịch sử thử nghiệm đều được SageMaker quản lý.
 
-Điểm quan trọng là đừng chỉ lấy “best trial” rồi kết thúc. Phần thú vị hơn là nhìn toàn bộ kết quả.
+## Một ví dụ với XGBoost
 
-Nếu những trial có `eta` gần 0.5 thường cho metric tốt hơn, có thể lần chạy sau nên mở rộng vùng này để khám phá tiếp. Nếu `max_depth` chỉ tốt ở một vài mức, ta có thể thu hẹp search space để tránh tốn trial vào những cấu hình kém hiệu quả. HPO vì vậy không chỉ chọn một bộ số tốt, mà còn giúp hiểu model nhạy với hyperparameter nào.
+Trong bài thực hành của AWS, mô hình XGBoost được dùng để phân loại chữ số viết tay từ 0 đến 9. Dữ liệu train và validation được đưa lên Amazon S3; SageMaker lấy image XGBoost có sẵn, khởi tạo máy huấn luyện và lưu model sau khi chạy xong.
 
-Trong SageMaker, các trial có thể xem ngay trên console như các training job thông thường: hyperparameter, input data, thời gian chạy, CloudWatch logs và metric đều có lịch sử. Điều này tiện khi cần so sánh hoặc giải thích vì sao một model được chọn.
+Ban đầu, ta có thể chạy một training job đơn lẻ để kiểm tra pipeline. Tiếp theo, thay vì cố định mọi giá trị, ta định nghĩa các khoảng cần tìm kiếm, ví dụ:
 
-## Áp dụng cho AI Agent Risk Scorer
+- `alpha`: từ 0,01 đến 0,5.
+- `eta` (learning rate): từ 0,1 đến 0,5.
+- `min_child_weight`: từ 0 đến 2.
+- `max_depth`: số nguyên từ 1 đến 10.
 
-Với project AI Agent Risk Scorer, đây là điểm rất đáng chú ý: không nên tối ưu chỉ theo accuracy. Nếu mục tiêu là hạn chế bỏ sót trajectory nguy hiểm, `risky recall` hoặc risky false-negative rate sẽ phản ánh rủi ro tốt hơn. Chọn đúng objective metric quan trọng không kém việc chạy nhiều trial.
+AMT sẽ lấy mẫu những tổ hợp khác nhau trong không gian này, chạy mô hình và đo `validation:accuracy`. Với mục tiêu là tối đa hóa accuracy, mỗi lần chạy trở thành một thí nghiệm có dữ liệu rõ ràng thay vì một lần “đoán thông số”.
 
-Cuối cùng, HPO cũng có chi phí vì mỗi trial là một training job. Nên bắt đầu bằng search space có cơ sở, giới hạn số trial bằng `max_jobs`, theo dõi kết quả, rồi chạy vòng tiếp theo với phạm vi tinh gọn hơn. Sau khi chọn model tốt, vẫn cần evaluation, model registry, approval và monitoring trước khi đưa lên production.
+## Vì sao chiến lược Bayesian đáng chú ý?
 
-Tóm lại, SageMaker AMT không thay thế tư duy ML, nhưng giúp biến việc “thử từng bộ hyperparameter” thành một quy trình có hệ thống, đo được và dễ lặp lại hơn.
+Ví dụ này sử dụng chiến lược tìm kiếm **Bayesian**. Điểm hay của nó là các lần thử sau có thể tận dụng kết quả của các lần thử trước để ưu tiên những vùng có triển vọng trong không gian hyperparameter.
+
+Trong bài demo, 50 trial được thực hiện với tối đa 3 job chạy song song. Trial tốt nhất đạt validation accuracy xấp xỉ **89,815%**. Nhưng giá trị quan trọng hơn không chỉ là “cấu hình tốt nhất”. Khi trực quan hóa tất cả trial, ta còn thấy được xu hướng:
+
+- Giá trị `eta` gần mức cao trong khoảng đã thử cho kết quả tốt hơn các giá trị gần 0.
+- `alpha` lại có xu hướng ngược lại.
+- `max_depth` chỉ hoạt động tốt trong một số vùng giá trị nhất định.
+
+Những quan sát này giúp đội ngũ ML không dừng lại ở một con số tối ưu tạm thời. Họ có thể thu hẹp hoặc mở rộng khoảng tìm kiếm cho vòng tối ưu tiếp theo, đồng thời hiểu rõ hơn mô hình nhạy với hyperparameter nào.
+
+## Bài học thực tế
+
+Hyperparameter tuning không nên được xem là bước phụ sau khi đã có mô hình. Đây là một phần của quá trình phát triển ML có kỷ luật:
+
+1. Chọn metric phản ánh đúng mục tiêu kinh doanh hoặc kỹ thuật.
+2. Bắt đầu với khoảng tìm kiếm dựa trên hiểu biết về thuật toán.
+3. Theo dõi từng trial, chi phí và log huấn luyện.
+4. Trực quan hóa kết quả để học từ cả vùng tốt lẫn vùng kém hiệu quả.
+5. Tinh chỉnh lại không gian tìm kiếm ở các vòng sau.
+
+SageMaker AMT không thay thế tư duy của người làm ML. Nó giảm phần việc vận hành và thử nghiệm lặp lại, để chúng ta tập trung vào các quyết định quan trọng hơn: dữ liệu có đủ tốt không, metric có đúng không, khoảng giá trị đặt ra có hợp lý không, và mô hình đang học được điều gì.
+
+Nếu đang dùng AWS để xây dựng pipeline machine learning, đây là một cách đáng cân nhắc để biến việc “vặn núm” thủ công thành một quy trình có hệ thống, dễ theo dõi và có thể mở rộng.
 
 ## Nguồn tham khảo
 
