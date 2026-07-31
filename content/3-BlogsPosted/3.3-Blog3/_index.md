@@ -15,11 +15,8 @@ pre: " <b> 3.3. </b> "
 | Platform | AWS Study Group - Facebook Group |
 | Facebook link | [View on Facebook](https://www.facebook.com/share/p/1GvynuCYcp/) |
 
-![Model-training flow with Amazon SageMaker](/images/3-BlogsPosted/sagemaker-automatic-model-tuning.png)
 
-*Figure 1. Amazon SageMaker creates a Training Job from a notebook, uses data in Amazon S3, stores model artifacts in S3, and sends logs and metrics to Amazon CloudWatch.*
 
-# Optimize Hyperparameters with Amazon SageMaker Automatic Model Tuning: letting the model find its “sweet spot”
 
 A good machine-learning model does not come only from clean data or a suitable algorithm. One small configuration layer can have a major effect on the final result: **hyperparameters**.
 
@@ -29,6 +26,9 @@ The difficulty is that the hyperparameter-combination space is often very large.
 
 This is where **Amazon SageMaker Automatic Model Tuning (AMT)** becomes useful.
 
+![Model-training flow with Amazon SageMaker](/images/3-BlogsPosted/sagemaker-automatic-model-tuning.png)
+
+*Figure 1. Amazon SageMaker creates a Training Job from a notebook, uses data in Amazon S3, stores model artifacts in S3, and sends logs and metrics to Amazon CloudWatch.*
 ## What does AMT do?
 
 Instead of manually coordinating dozens of experiments, an ML practitioner only needs to prepare three things:

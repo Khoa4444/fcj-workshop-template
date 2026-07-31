@@ -15,11 +15,6 @@ pre: " <b> 3.3. </b> "
 | Platform | AWS Study Group - Facebook Group |
 | Liên kết Facebook | [Xem trên Facebook](https://www.facebook.com/share/p/1GvynuCYcp/) |
 
-![Luồng huấn luyện mô hình với Amazon SageMaker](/images/3-BlogsPosted/sagemaker-automatic-model-tuning.png)
-
-*Hình 1. Amazon SageMaker tạo Training Job từ notebook, dùng dữ liệu trên Amazon S3, lưu model artifact trên S3 và ghi log, metric lên Amazon CloudWatch.*
-
-# Tối ưu Hyperparameter với Amazon SageMaker Automatic Model Tuning: để mô hình tự tìm “điểm ngọt”
 
 Một mô hình machine learning tốt không chỉ đến từ dữ liệu sạch hay thuật toán phù hợp. Có một lớp thiết lập nhỏ nhưng ảnh hưởng rất lớn đến kết quả cuối cùng: **hyperparameter**.
 
@@ -28,6 +23,11 @@ Ví dụ, khi huấn luyện XGBoost, ta phải quyết định learning rate, �
 Vấn đề là: không gian kết hợp của các hyperparameter thường rất lớn. Thử tay từng cấu hình vừa mất thời gian, vừa khó lặp lại, lại nhanh chóng trở thành một công việc tốn kém nếu mỗi lần thử đều cần khởi tạo hạ tầng để huấn luyện.
 
 Đó là lúc **Amazon SageMaker Automatic Model Tuning (AMT)** trở nên hữu ích.
+
+![Luồng huấn luyện mô hình với Amazon SageMaker](/images/3-BlogsPosted/sagemaker-automatic-model-tuning.png)
+
+*Hình 1. Amazon SageMaker tạo Training Job từ notebook, dùng dữ liệu trên Amazon S3, lưu model artifact trên S3 và ghi log, metric lên Amazon CloudWatch.*
+
 
 ## AMT làm gì?
 
