@@ -10,10 +10,10 @@ pre: " <b> 3.3. </b> "
 
 | Information | Details |
 |---|---|
-| Publication date | Pending approval |
-| Status | Pending approval |
+| Publication date | 31/07/2026 |
+| Status | Published |
 | Platform | AWS Study Group - Facebook Group |
-| Facebook link | Pending approval |
+| Facebook link | [View post](https://www.facebook.com/share/p/1GvynuCYcp/) |
 
 ![Model-training flow with Amazon SageMaker](/images/3-BlogsPosted/sagemaker-automatic-model-tuning.png)
 
