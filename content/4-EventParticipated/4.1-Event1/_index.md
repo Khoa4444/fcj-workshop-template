@@ -27,7 +27,12 @@ Speaker **Ngo Le Tan Huy** introduced a preparation roadmap for AWS Certified Cl
 
 The presentation covered the four exam domains—Cloud Concepts (24%), Security and Compliance (30%), Cloud Technology and Services (34%), and Billing, Pricing, and Support (12%)—as well as cloud benefits, the Well-Architected and Cloud Adoption Frameworks, the Shared Responsibility Model, IAM, global infrastructure, compute, storage, databases, networking, and EC2 pricing models.
 
-Useful preparation practices included learning services through keywords and real use cases, analyzing incorrect practice questions, trying EC2, S3, and IAM on the Free Tier, and using elimination carefully for words such as “Not”, “Least cost”, and “Most scalable”.
+Useful preparation practices included:
+
+- Learning services through keywords and real use cases, such as SQS for decoupling or microservices.
+- Carefully analyzing incorrect practice questions instead of only completing many practice tests.
+- Trying EC2, S3, and IAM on the Free Tier to make the concepts more concrete.
+- Using elimination carefully for words such as “Not”, “Least cost”, and “Most scalable”, then marking uncertain questions for review.
 
 ### 3.2. SLA and Monitoring: What Really Matters
 
