@@ -24,4 +24,12 @@ During my studies and professional development, I attended events on AWS, cloud 
 &emsp;**Role:** Attendee<br>
 &emsp;**Key content:** Practical Agentic AI and AWS projects, including crowd coordination, multichannel conversational ordering, Solution Architect assistance, and business-signal analysis.
 
+### [Event 3 – Agent Forge - Deepdive Day 1](4.3-Event3/)
+
+&emsp;**Event name:** Agent Forge - Deepdive Day 1<br>
+&emsp;**Time:** 09:00–12:00, 1 August 2026<br>
+&emsp;**Location:** Bitexco Financial Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City<br>
+&emsp;**Role:** Attendee<br>
+&emsp;**Key content:** Amazon Bedrock AgentCore foundations, deploying a basic agent, connecting tools and Knowledge Bases, and building a Web UI with Amazon Cognito authentication.
+
 > Each detailed report includes event content, lessons learned, possible applications, and participation evidence.

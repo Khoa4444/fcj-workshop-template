@@ -32,4 +32,16 @@ Trong quá trình học tập và phát triển chuyên môn, tôi đã tham gia
 
 &emsp;**Nội dung chính:** Theo dõi các dự án thực hành về Agentic AI và AWS, gồm điều phối đám đông, đặt món hội thoại đa kênh, hỗ trợ Solution Architect và phân tích tín hiệu doanh nghiệp.
 
+### [Event 3 – Agent Forge - Deepdive Day 1](4.3-Event3/)
+
+&emsp;**Tên sự kiện:** Agent Forge - Deepdive Day 1
+
+&emsp;**Thời gian:** 09:00–12:00, 01/08/2026
+
+&emsp;**Địa điểm:** Bitexco Financial Tower, 02 Hải Triều, phường Sài Gòn, Thành phố Hồ Chí Minh
+
+&emsp;**Vai trò trong sự kiện:** Người tham dự
+
+&emsp;**Nội dung chính:** Nền tảng Amazon Bedrock AgentCore, triển khai agent cơ bản, kết nối công cụ/Knowledge Bases và xây dựng Web UI tích hợp xác thực Amazon Cognito.
+
 > Mỗi báo cáo chi tiết bao gồm nội dung sự kiện, kiến thức thu nhận, khả năng áp dụng và ảnh minh chứng tham gia.
